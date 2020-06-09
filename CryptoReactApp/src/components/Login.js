@@ -43,19 +43,39 @@ class Login extends Component {
   state = { show: true, login: true, signup: false };
 
   showModal = () => {
-    this.setState({ show: true });
+    $(".modal-content").addClass("animate__animated animate__fadeIn");
+    setTimeout(() => {
+      this.setState({ show: true });
+    }, 400);
   };
 
   hideModal = () => {
-    this.setState({ show: false });
+    $(".modal-content").addClass("animate__animated animate__fadeOut");
+    setTimeout(() => {
+      this.setState({ show: false });
+    }, 400);
   };
 
   showLogin = () => {
-    this.setState({ login: true, signup: false });
+    $(".active").removeClass("slide");
+    $(".active").addClass("slide-back");
+    $(".signupform").addClass("animate__animated animate__zoomOut");
+    setTimeout(() => {
+      this.setState({ login: true, signup: false });
+      $(".loginform").addClass("animate__animated animate__zoomIn");
+    }, 400);
   };
 
   showSignUp = () => {
-    this.setState({ login: false, signup: true });
+    $(".active").removeClass("slide-back");
+    $(".active").addClass("slide");
+    $(".loginform").addClass("animate__animated animate__zoomOut");
+    setTimeout(() => {
+      this.setState({ login: false, signup: true });
+      $(".signupform")
+        .addClass("animate__animated animate__zoomIn")
+        .css("opacity", "1");
+    }, 400);
   };
 
   render() {
@@ -75,6 +95,7 @@ class Login extends Component {
                   <span className="signup" onClick={this.showSignUp}>
                     Sign Up
                   </span>
+                  <span className="active"> </span>
                 </div>
               </div>
               {this.state.login && (
@@ -85,9 +106,8 @@ class Login extends Component {
                     <input type="text" id="username" name="username" />
                     <label> Password:</label>
                     <input type="text" id="userpwd" name="password" />
-                    <div className="submitBtn">
+                    <div className="submitBtn active">
                       <a>
-                        <input name="send" id="submit" />
                         <label>Login</label>
                       </a>
                     </div>
@@ -105,14 +125,11 @@ class Login extends Component {
                     <div className="submitBtn">
                       <a className="signup">
                         <label>Sign Up</label>
-                        <input name="send" id="submit" />
                       </a>
                     </div>
                   </form>
                 </div>
               )}
-
-              <p>Please enter your username and password</p>
             </div>
           </div>
         )}

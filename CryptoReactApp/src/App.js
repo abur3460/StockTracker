@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./scss/index.scss";
 import * as animate from "animate.css";
 
 import Activity from "./components/Activity";
