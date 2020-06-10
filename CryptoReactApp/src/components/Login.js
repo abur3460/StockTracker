@@ -40,65 +40,31 @@ function validateSignUpForm() {
 }
 
 class Login extends Component {
-  state = { show: true, login: true, signup: false };
-
-  showModal = () => {
-    $(".modal-content").addClass("animate__animated animate__fadeIn");
-    setTimeout(() => {
-      this.setState({ show: true });
-    }, 400);
-  };
-
-  hideModal = () => {
-    $(".modal-content").addClass("animate__animated animate__fadeOut");
-    setTimeout(() => {
-      this.setState({ show: false });
-    }, 400);
-  };
-
-  showLogin = () => {
-    $(".active").removeClass("slide");
-    $(".active").addClass("slide-back");
-    $(".signupform").addClass("animate__animated animate__zoomOut");
-    setTimeout(() => {
-      this.setState({ login: true, signup: false });
-      $(".loginform").addClass("animate__animated animate__zoomIn");
-    }, 400);
-  };
-
-  showSignUp = () => {
-    $(".active").removeClass("slide-back");
-    $(".active").addClass("slide");
-    $(".loginform").addClass("animate__animated animate__zoomOut");
-    setTimeout(() => {
-      this.setState({ login: false, signup: true });
-      $(".signupform")
-        .addClass("animate__animated animate__zoomIn")
-        .css("opacity", "1");
-    }, 400);
-  };
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
       <main>
-        {this.state.show && (
+        {this.props.show && (
           <div id="modal">
             <div className="modal-content">
-              <span className="close" onClick={this.hideModal}>
+              <span className="close" onClick={this.props.hideModal}>
                 &times;
               </span>
               <div className="hdr-text">
                 <div className="form-switch">
-                  <span className="login" onClick={this.showLogin}>
+                  <span className="login" onClick={this.props.showLogin}>
                     Login
                   </span>
-                  <span className="signup" onClick={this.showSignUp}>
+                  <span className="signup" onClick={this.props.showSignUp}>
                     Sign Up
                   </span>
                   <span className="active"> </span>
                 </div>
               </div>
-              {this.state.login && (
+              {this.props.login && (
                 <div className="loginform">
                   <h2>Login</h2>
                   <form id="login-form" encType="multipart/form-data">
@@ -114,7 +80,7 @@ class Login extends Component {
                   </form>
                 </div>
               )}
-              {this.state.signup && (
+              {this.props.signup && (
                 <div className="signupform">
                   <h2>Sign Up</h2>
                   <form id="signup-form" encType="multipart/form-data">

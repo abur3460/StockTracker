@@ -1,19 +1,12 @@
 import React from "react";
 import "./scss/index.scss";
 import * as animate from "animate.css";
-
-import Activity from "./components/Activity";
-import Nav from "./components/Nav";
-import Loader from "./components/Loader";
-import Login from "./components/Login";
+import Landing from "./components/Landing";
 
 function App() {
   return (
     <div className="wrapper">
-      <Nav />
-      <Login />
-      <Activity />
-      <Loader />
+      <Landing />
     </div>
   );
 }

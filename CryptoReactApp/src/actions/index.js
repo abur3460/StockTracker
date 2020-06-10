@@ -1,5 +1,37 @@
 import axios from "axios";
+export const TOGGLE_MODAL = "TOGGLE_MODAL";
 export const FETCHING_DATA_SUCCESS = "FETCHING_DATA_SUCCESS";
+
+require("dotenv").config();
+
+const key = process.env.KEY;
+var stocks = [
+  "SPX",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];
+
+const URL =
+  "https://financialmodelingprep.com/api/v3/company/profile/" +
+  stocks[1] +
+  "&apikey=" +
+  key;
 
 export const fetchActivity = () => (dispatch) => {
   axios
@@ -22,4 +54,10 @@ export const fetchActivity = () => (dispatch) => {
       }, 3000);
     })
     .catch((err) => console.log(err));
+};
+
+export const showModal = () => (dispatch) => {
+  dispatch({
+    type: TOGGLE_MODAL,
+  });
 };
