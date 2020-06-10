@@ -4,6 +4,9 @@
     height: 3rem;
     background: rgb(39, 39, 39);
     font-family: "Orbitron", sans-serif;
+    .mobile-top-nav {
+      display: none;
+    }
     .menu {
       display: flex;
       justify-content: space-between;
