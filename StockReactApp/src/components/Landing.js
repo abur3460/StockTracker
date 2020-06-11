@@ -13,6 +13,10 @@ class Landing extends Component {
 
   showModal = () => {
     this.setState({ show: true });
+    var x = window.matchMedia("(max-width: 700px)");
+    if (x.matches) {
+      $("#nav").slideToggle();
+    }
     $("#modal")
       .addClass("animate__animated animate__fadeIn")
       .css("display", "block");

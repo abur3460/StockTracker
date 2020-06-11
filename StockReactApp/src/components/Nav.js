@@ -9,14 +9,12 @@ class Nav extends Component {
   slideNav = () => {
     var x = window.matchMedia("(max-width: 700px)");
     if (x.matches) {
-      console.log("ran! mobile");
       if ($(".menu").hasClass("collapsed")) {
         $("#nav").slideToggle();
       } else {
         $("#nav").slideToggle();
       }
     } else {
-      console.log("ran!");
     }
   };
 
