@@ -6,8 +6,7 @@ export const FETCHING_DATA_SUCCESS = "FETCHING_DATA_SUCCESS";
 var key = process.env.REACT_APP_KEY;
 
 const URL =
-  "https://cors-anywhere.herokuapp.com/https://financialmodelingprep.com/api/v3/quotes/index?apikey=" +
-  key;
+  "https://financialmodelingprep.com/api/v3/quotes/nyse?apikey=" + key;
 
 export const fetchActivity = () => (dispatch) => {
   $("body").css("overflow-y", "auto");
