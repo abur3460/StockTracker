@@ -11,17 +11,13 @@
     z-index: 1;
     display: none;
     .modal-content {
-      position: absolute;
+      position: relative;
       background: rgb(77, 77, 77);
       width: 80vw;
-      height: 80vh;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      height: 70vh;
       opacity: 0;
-      .signupform {
-        opacity: 0;
-      }
+      margin: 0 auto;
+      margin-top: 6rem;
       .form-switch {
         letter-spacing: 1px;
         display: flex;
@@ -34,17 +30,16 @@
         left: 10%;
       }
       .form-switch .active {
-        border-radius: 15px;
         z-index: -1;
         position: absolute;
         top: 10px;
-        left: -17px;
-        width: 7rem;
+        left: -10px;
+        width: 6rem;
         height: 3rem;
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
         &.slide {
           transition: margin 0.2s ease-in-out;
-          margin-left: 112px;
+          margin-left: 105px;
         }
         &.slide-back {
           transition: margin 0.2s ease-in-out;
@@ -53,7 +48,6 @@
       }
 
       .form-switch .login {
-        border-radius: 10px;
         margin: 1rem 1rem 1rem -1rem;
         padding: 10px;
         cursor: pointer;
@@ -61,7 +55,6 @@
       }
 
       .form-switch .signup {
-        border-radius: 10px;
         margin: 1rem 0.3rem;
         padding: 10px;
         cursor: pointer;
@@ -71,8 +64,9 @@
         text-align: center;
         text-transform: uppercase;
         letter-spacing: 2px;
-        margin: 5rem auto 4vh auto;
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
+        padding-top: 3rem;
+        margin: 2rem auto;
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -115,7 +109,7 @@
         cursor: pointer;
         border: 2px solid;
         border-image-slice: 1;
-        border-image-source: linear-gradient(75deg, #cc19cc, #6f20d6);
+        border-image-source: linear-gradient(342deg, #d19458, #8b1c7e);
         position: relative;
         z-index: 10;
         color: white;
@@ -123,7 +117,7 @@
       }
 
       form .submitBtn a:before {
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
         display: inline-flex;
         content: "";
         width: 4.5rem !important;
@@ -136,7 +130,7 @@
         transition: all 0.1s ease-in-out;
       }
       form .submitBtn .signup:before {
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
         display: inline-flex;
         content: "";
         width: 100% !important;

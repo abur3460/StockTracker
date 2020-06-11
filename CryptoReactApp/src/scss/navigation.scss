@@ -20,6 +20,9 @@
       cursor: pointer;
       margin: 0 1rem;
     }
+    #glowbar-mobile {
+      display: none;
+    }
     #glowbar {
       background: linear-gradient(342deg, #d19458, #8b1c7e);
       position: relative;

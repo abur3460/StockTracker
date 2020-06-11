@@ -14,13 +14,14 @@
     box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.3), 0 2px 3px rgba(0, 0, 0, 0.12),
       0 4px 4px rgba(0, 0, 0, 0.12);
     .menu {
-      float: none;
+      margin-top: 1.8rem;
       z-index: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      #link {
-        margin-top: 1rem;
+      .first {
+        display: flex;
+        flex-direction: column;
       }
     }
     .collapsed {
@@ -58,8 +59,10 @@
       margin-top: 0.9rem;
     }
     #glowbar {
-      opacity: 1;
-      background: linear-gradient(75deg, #8a19cc, #20d0d6);
+      display: none;
+    }
+    #glowbar-mobile {
+      background: linear-gradient(342deg, #d19458, #8b1c7e);
       position: relative;
       top: 1rem;
       width: 100%;
@@ -82,6 +85,16 @@
       text-align: center;
       margin: 7.5rem auto 2rem auto;
       line-height: 2.2rem;
+      font-weight: bold;
+    }
+    p {
+      text-align: center;
+      width: 80%;
+      font-family: "Open Sans", sans-serif;
+      background: linear-gradient(342deg, #d19458, #8b1c7e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
       font-weight: bold;
     }
     .btn {

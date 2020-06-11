@@ -12,7 +12,8 @@ const Activity = (props) => {
   console.log(props);
   return (
     <div className="main">
-      <h1 className="m-title">Crypto Currency Price Tracker</h1>
+      <h1 className="m-title">Stock Market Tracker</h1>
+      <p>Major index tracking with real-time prices, volumes, and more. </p>
       <span className="btn bouncy" id="button" onClick={props.fetchActivity}>
         Check Current Prices
       </span>
@@ -24,21 +25,21 @@ const Activity = (props) => {
               <td colSpan="2">Price</td>
             </tr>
           </thead>
-          {props.activity.activity.map((coin) => (
-            <tbody key={coin.id}>
+          {props.activity.activity.map((index) => (
+            <tbody key={index.id}>
               <tr>
                 <td>
-                  <img
-                    alt="coin thumbnail"
-                    src={coin.iconUrl}
+                  {/* <img
+                    alt="thumbnail"
+                    src={index.symbol}
                     className="posterImage"
-                  />
+                  /> */}
                   <div className="text">
-                    {coin.name} | {coin.symbol}
+                    {index.name} | {index.symbol}
                   </div>
                 </td>
                 <td>
-                  <div className="price">${formatter.format(coin.price)}</div>
+                  <div className="price">${formatter.format(index.price)}</div>
                 </td>
               </tr>
             </tbody>

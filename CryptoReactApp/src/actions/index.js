@@ -1,15 +1,16 @@
 import axios from "axios";
+import $ from "jquery";
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
 export const FETCHING_DATA_SUCCESS = "FETCHING_DATA_SUCCESS";
 
-require("dotenv").config();
-
-const key = process.env.KEY;
+var key = process.env.REACT_APP_KEY;
 
 const URL =
-  "https://financialmodelingprep.com/api/v3/quotes/index?apikey=" + key;
+  "https://cors-anywhere.herokuapp.com/https://financialmodelingprep.com/api/v3/quotes/index?apikey=" +
+  key;
 
 export const fetchActivity = () => (dispatch) => {
+  $("body").css("overflow-y", "auto");
   axios
     .get(URL)
     .then((res) => {
@@ -21,10 +22,10 @@ export const fetchActivity = () => (dispatch) => {
         setTimeout(() => {
           document.getElementById("table").className =
             "animate__animated animate__fadeIn";
-          console.log(res.data.data.coins);
+          console.log(res.data);
           dispatch({
             type: FETCHING_DATA_SUCCESS,
-            payload: res.data.data.coins,
+            payload: res.data,
           });
         }, 200);
       }, 3000);
@@ -54,9 +55,3 @@ export const fetchActivity = () => (dispatch) => {
 //     })
 //     .catch((err) => console.log(err));
 // };
-
-export const showModal = () => (dispatch) => {
-  dispatch({
-    type: TOGGLE_MODAL,
-  });
-};
