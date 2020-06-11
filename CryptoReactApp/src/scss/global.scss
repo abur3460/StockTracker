@@ -1,13 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 
 .wrapper {
   color: white;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 .main {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: flex;
   flex-flow: column;
   align-items: center;
+}
+
+.animate__animated .animate__fadeOut,
+.animate__animated .animate__fadeIn {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
 }
 
 //mobile

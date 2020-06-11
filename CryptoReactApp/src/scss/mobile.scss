@@ -70,13 +70,13 @@
   .main {
     color: white;
     .m-title {
-      background: linear-gradient(to right, #cc19cc, #6f20d6);
+      background: linear-gradient(342deg, #d19458, #8b1c7e);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
       word-spacing: 10px;
-      font-family: "Orbitron", sans-serif;
+      font-family: "Open Sans", sans-serif;
       font-size: 1.8rem;
       width: 90vw;
       text-align: center;
@@ -90,13 +90,13 @@
       position: relative;
       cursor: pointer;
       padding: 1rem;
-      background: linear-gradient(to right, #cc19cc, #6f20d6);
+      background: linear-gradient(342deg, #d19458, #8b1c7e);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       border: 2px solid;
       border-image-slice: 1;
-      border-image-source: linear-gradient(to right, #cc19cc, #6f20d6);
+      border-image-source: linear-gradient(342deg, #d19458, #8b1c7e);
       text-decoration: none;
       font-weight: bold;
       margin: 2rem auto;
@@ -114,7 +114,7 @@
       transition: all 0.2s;
     }
     .btn:before {
-      background: linear-gradient(to right, #cc19cc, #6f20d6);
+      background: linear-gradient(342deg, #d19458, #8b1c7e);
       display: inline-flex;
       content: "";
       width: 272px;

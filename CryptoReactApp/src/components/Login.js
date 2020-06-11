@@ -3,40 +3,36 @@ import ReactDOM from "react-dom";
 import $ from "jquery";
 
 function validateLoginForm() {
-  var b = !0;
-  var g = $("#userName").val(),
-    n = $("#userPwd").val();
-  return (
-    "" === g
-      ? ($("#userName-info").html("Required."),
-        $("#userName").css("border", "#e66262 1px solid"),
-        (b = !1))
-      : $("#userName").css("border", "none"),
-    "" === n
-      ? ($("#userEmail-info").html("Required."),
-        $("#userPwd").css("border", "#e66262 1px solid"),
-        (b = !1))
-      : $("#userPwd").css("border", "none"),
-    b
-  );
+  var g = $("#username").val(),
+    n = $("#userpwd").val();
+  if (g == "") {
+    $("#username-info").html("Required");
+    $("#username").css("border", "#e66262 1px solid");
+  } else {
+    $("#username").css("border", "none");
+  }
+  if (n == "") {
+    $("#userpwd-info").html("Required");
+    $("#userpwd").css("border", "#e66262 1px solid");
+  } else {
+    $("#userpwd").css("border", "none");
+  }
 }
 function validateSignUpForm() {
-  var b = !0;
-  var g = $("#userName").val(),
-    n = $("#userPwd").val();
-  return (
-    "" === g
-      ? ($("#userName-info").html("Required."),
-        $("#userName").css("border", "#e66262 1px solid"),
-        (b = !1))
-      : $("#userName").css("border", "none"),
-    "" === n
-      ? ($("#userEmail-info").html("Required."),
-        $("#userPwd").css("border", "#e66262 1px solid"),
-        (b = !1))
-      : $("#userPwd").css("border", "none"),
-    b
-  );
+  var g = $("#username").val(),
+    n = $("#userpwd").val();
+  if (g == "") {
+    $("#username-info").html("Required");
+    $("#username").css("border", "#e66262 1px solid");
+  } else {
+    $("#username").css("border", "none");
+  }
+  if (n == "") {
+    $("#userpwd-info").html("Required");
+    $("#userpwd").css("border", "#e66262 1px solid");
+  } else {
+    $("#userpwd").css("border", "none");
+  }
 }
 
 class Login extends Component {
@@ -61,7 +57,7 @@ class Login extends Component {
                   <span className="signup" onClick={this.props.showSignUp}>
                     Sign Up
                   </span>
-                  <span className="active"> </span>
+                  <span className="active load"> </span>
                 </div>
               </div>
               {this.props.login && (
@@ -74,7 +70,13 @@ class Login extends Component {
                     <input type="text" id="userpwd" name="password" />
                     <div className="submitBtn active">
                       <a>
-                        <label>Login</label>
+                        <label
+                          onClick={() => {
+                            validateLoginForm();
+                          }}
+                        >
+                          Login
+                        </label>
                       </a>
                     </div>
                   </form>
@@ -85,12 +87,18 @@ class Login extends Component {
                   <h2>Sign Up</h2>
                   <form id="signup-form" encType="multipart/form-data">
                     <label> Username:</label>
-                    <input type="text" id="userName" name="username" />
+                    <input type="text" id="username" name="username" />
                     <label> Password:</label>
                     <input type="text" id="userpwd" name="password" />
                     <div className="submitBtn">
                       <a className="signup">
-                        <label>Sign Up</label>
+                        <label
+                          onClick={() => {
+                            validateSignUpForm();
+                          }}
+                        >
+                          Sign Up
+                        </label>
                       </a>
                     </div>
                   </form>

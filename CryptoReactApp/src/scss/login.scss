@@ -1,6 +1,7 @@
+// mobile
 @media only screen and (min-width: 0px) and (max-width: 600px) {
   #modal {
-    font-family: "Orbitron", sans-serif;
+    font-family: "Open Sans", sans-serif;
     position: absolute;
     top: 0;
     left: 0;
@@ -88,6 +89,8 @@
         font-size: 1rem;
       }
       form input {
+        font-family: "Open Sans", sans-serif;
+        color: white;
         margin: 5px auto;
         height: 2rem;
         width: 50%;
@@ -174,7 +177,7 @@
 // tablet
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
   #modal {
-    font-family: "Orbitron", sans-serif;
+    font-family: "Open Sans", sans-serif;
     position: absolute;
     top: 0;
     left: 0;
@@ -262,6 +265,8 @@
         font-size: 1rem;
       }
       form input {
+        font-family: "Open Sans", sans-serif;
+        color: white;
         margin: 5px auto;
         height: 2rem;
         width: 50%;
@@ -346,7 +351,7 @@
 // desktop
 @media only screen and (min-width: 1201px) {
   #modal {
-    font-family: "Orbitron", sans-serif;
+    font-family: "Open Sans", sans-serif;
     position: absolute;
     top: 0;
     left: 0;
@@ -356,73 +361,94 @@
     z-index: 1;
     display: none;
     .modal-content {
-      position: absolute;
+      position: relative;
       background: rgb(77, 77, 77);
       width: 20vw;
-      height: 60vh;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      height: 28rem;
+      margin: 10vh auto;
+      padding-top: 1rem;
       opacity: 0;
-      .signupform {
-        opacity: 0;
-      }
+      box-shadow: 2px 2px 15px 3px rgba(0, 0, 0, 0.52);
       .form-switch {
-        letter-spacing: 1px;
+        color: rgb(200, 200, 200);
         display: flex;
         justify-content: center;
         margin-left: 2rem;
         text-transform: uppercase;
         font-weight: bold;
         position: absolute;
-        bottom: 0;
-        left: 15%;
+        bottom: 7%;
+        left: 19%;
       }
       .form-switch .active {
-        border-radius: 15px;
         z-index: -1;
         position: absolute;
         top: 10px;
-        left: -17px;
-        width: 7rem;
+        left: -12px;
+        width: 6rem;
         height: 3rem;
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
         &.slide {
           transition: margin 0.2s ease-in-out;
-          margin-left: 112px;
+          margin-left: 94px;
         }
         &.slide-back {
+          transition: margin 0.2s ease-in-out;
+          margin-left: 0;
+        }
+        &.load {
           transition: margin 0.2s ease-in-out;
           margin-left: 0;
         }
       }
 
       .form-switch .login {
+        -webkit-font-smoothing: antialiased;
         border-radius: 10px;
-        margin: 1rem 1rem 1rem -1rem;
+        margin: 1rem 1rem 1rem 0;
         padding: 10px;
         cursor: pointer;
         margin-left: 0rem;
+        transition: 0.1s all ease-in-out;
+        &:hover {
+          color: rgb(255, 255, 255);
+        }
+      }
+      .form-switch .login:hover ~ .active.slide {
+        transition: margin 0.2s ease-in-out;
+        margin-left: 0;
       }
 
       .form-switch .signup {
         border-radius: 10px;
-        margin: 1rem 0.3rem;
+        margin: 1rem 0;
         padding: 10px;
         cursor: pointer;
+        transition: 0.1s all ease-in-out;
+        &:hover {
+          color: rgb(255, 255, 255);
+        }
+      }
+      .form-switch .signup:hover ~ .active.load {
+        transition: margin 0.1s ease-in-out;
+        margin-left: 94px;
+      }
+      .form-switch .signup:hover ~ .active.slide-back {
+        transition: margin 0.1s ease-in-out;
+        margin-left: 94px;
       }
 
       h2 {
         text-align: center;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        margin: 2rem 0 4vh 0;
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
+        margin: 2rem auto;
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-weight: bold;
+        font-weight: 800;
         font-size: 2rem;
+        width: 10rem;
       }
       form {
         display: flex;
@@ -434,6 +460,7 @@
         font-size: 1rem;
       }
       form input {
+        font-family: "Open Sans", sans-serif;
         margin: 5px auto;
         height: 2rem;
         width: 50%;
@@ -442,6 +469,7 @@
         background: rgb(49, 49, 49);
         align-self: center;
         margin-bottom: 2rem;
+        color: white;
       }
       form .submitBtn {
         align-self: center;
@@ -458,7 +486,7 @@
         cursor: pointer;
         border: 2px solid;
         border-image-slice: 1;
-        border-image-source: linear-gradient(75deg, #cc19cc, #6f20d6);
+        border-image-source: linear-gradient(342deg, #d19458, #8b1c7e);
         position: relative;
         z-index: 10;
         color: white;
@@ -466,11 +494,11 @@
       }
 
       form .submitBtn a:before {
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
         display: inline-flex;
         content: "";
-        width: 4.5rem !important;
-        height: 2.4rem !important;
+        width: 100%;
+        height: 2.5rem;
         position: absolute;
         top: -2px;
         left: 0;
@@ -479,7 +507,7 @@
         transition: all 0.1s ease-in-out;
       }
       form .submitBtn .signup:before {
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
         display: inline-flex;
         content: "";
         width: 100% !important;
@@ -496,12 +524,13 @@
       }
 
       .close {
-        position: relative;
+        position: absolute;
         color: #ffffff;
-        float: right;
-        font-size: 20px;
+        top: 0;
+        right: 0;
+        font-size: 40px;
         font-weight: bold;
-        padding: 5px 10px;
+        padding: 5px 12px;
         transition: all 0.2s;
         z-index: 1000;
       }

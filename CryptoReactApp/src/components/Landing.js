@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import $ from "jquery";
 import Activity from "./Activity";
 import Loader from "./Loader";
@@ -30,25 +29,33 @@ class Landing extends Component {
   };
 
   showLogin = () => {
+    $(".active").removeClass("load");
     $(".active").removeClass("slide");
     $(".active").addClass("slide-back");
-    $(".signupform").addClass("animate__animated animate__zoomOut");
+    $(".modal-content").removeClass("animate__animated animate__fadeInDownBig");
+    $(".modal-content").addClass("animate__animated animate__fadeOutDownBig");
     setTimeout(() => {
       this.setState({ login: true, signup: false });
-      $(".loginform").addClass("animate__animated animate__zoomIn");
-    }, 400);
+      $(".modal-content").removeClass(
+        "animate__animated animate__fadeOutDownBig"
+      );
+      $(".modal-content").addClass("animate__animated animate__fadeInDownBig");
+    }, 500);
   };
 
   showSignUp = () => {
+    $(".active").removeClass("load");
     $(".active").removeClass("slide-back");
     $(".active").addClass("slide");
-    $(".loginform").addClass("animate__animated animate__zoomOut");
+    $(".modal-content").removeClass("animate__animated animate__fadeInDownBig");
+    $(".modal-content").addClass("animate__animated animate__fadeOutDownBig");
     setTimeout(() => {
       this.setState({ login: false, signup: true });
-      $(".signupform")
-        .addClass("animate__animated animate__zoomIn")
-        .css("opacity", "1");
-    }, 400);
+      $(".modal-content").removeClass(
+        "animate__animated animate__fadeOutDownBig"
+      );
+      $(".modal-content").addClass("animate__animated animate__fadeInDownBig");
+    }, 500);
   };
 
   render() {
