@@ -12,7 +12,6 @@ class Landing extends Component {
   }
 
   showModal = () => {
-    $("#nav").slideToggle();
     this.setState({ show: true });
     $("#modal")
       .addClass("animate__animated animate__fadeIn")
