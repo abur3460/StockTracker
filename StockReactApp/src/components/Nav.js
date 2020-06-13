@@ -37,8 +37,18 @@ class Nav extends Component {
         <div id="glowbar-mobile"></div>
         <div className="menu collapsed" id="nav">
           <div className="first">
-            <a>Home</a>
-            <a>History</a>
+            <a to="/dashboard">Home</a>
+            <a className="dropdown">
+              <span>Trackers</span>
+              {/* <ul className="dropdown-menu">
+                <li>
+                  <span>Stock Market</span>
+                </li>
+                <li>
+                  <span>Crypto Currency</span>
+                </li>
+              </ul> */}
+            </a>
           </div>
           <div className="second" onClick={this.props.showModal}>
             <a>Log In</a>

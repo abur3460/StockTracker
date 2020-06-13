@@ -1,115 +1,156 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+// import { Link } from "react-router-dom";
 import $ from "jquery";
 
-function validateLoginForm() {
-  var g = $("#username").val(),
-    n = $("#userpwd").val();
-  if (g == "") {
-    $("#username-info").html("Required");
-    $("#username").css("border", "#e66262 1px solid");
-  } else {
-    $("#username").css("border", "none");
-  }
-  if (n == "") {
-    $("#userpwd-info").html("Required");
-    $("#userpwd").css("border", "#e66262 1px solid");
-  } else {
-    $("#userpwd").css("border", "none");
-  }
-}
-function validateSignUpForm() {
-  var g = $("#username").val(),
-    n = $("#userpwd").val();
-  if (g == "") {
-    $("#username-info").html("Required");
-    $("#username").css("border", "#e66262 1px solid");
-  } else {
-    $("#username").css("border", "none");
-  }
-  if (n == "") {
-    $("#userpwd-info").html("Required");
-    $("#userpwd").css("border", "#e66262 1px solid");
-  } else {
-    $("#userpwd").css("border", "none");
-  }
-}
-
 class Login extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      errors: {},
+    };
   }
-
+  onChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
+  onSubmit = (e) => {
+    e.preventDefault();
+    const userData = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+    console.log(userData);
+  };
   render() {
+    const { errors } = this.state;
     return (
-      <main>
-        {this.props.show && (
-          <div id="modal">
-            <div className="modal-content">
-              <span className="close" onClick={this.props.hideModal}>
-                &times;
-              </span>
-              <div className="hdr-text">
-                <div className="form-switch">
-                  <span className="login" onClick={this.props.showLogin}>
-                    Login
-                  </span>
-                  <span className="signup" onClick={this.props.showSignUp}>
-                    Sign Up
-                  </span>
-                  <span className="active load"> </span>
-                </div>
-              </div>
-              {this.props.login && (
-                <div className="loginform">
-                  <h2>Login</h2>
-                  <form id="login-form" encType="multipart/form-data">
-                    <label> Username:</label>
-                    <input type="text" id="username" name="username" />
-                    <label> Password:</label>
-                    <input type="text" id="userpwd" name="password" />
-                    <div className="submitBtn active">
-                      <a>
-                        <label
-                          onClick={() => {
-                            validateLoginForm();
-                          }}
-                        >
-                          Login
-                        </label>
-                      </a>
-                    </div>
-                  </form>
-                </div>
-              )}
-              {this.props.signup && (
-                <div className="signupform">
-                  <h2>Sign Up</h2>
-                  <form id="signup-form" encType="multipart/form-data">
-                    <label> Username:</label>
-                    <input type="text" id="username" name="username" />
-                    <label> Password:</label>
-                    <input type="text" id="userpwd" name="password" />
-                    <div className="submitBtn">
-                      <a className="signup">
-                        <label
-                          onClick={() => {
-                            validateSignUpForm();
-                          }}
-                        >
-                          Sign Up
-                        </label>
-                      </a>
-                    </div>
-                  </form>
-                </div>
-              )}
+      <div className="container">
+        <div style={{ marginTop: "4rem" }} className="row">
+          <div className="col s8 offset-s2">
+            {/* <Link to="/" className="btn-flat waves-effect">
+              <i className="material-icons left">keyboard_backspace</i> Back to
+              home
+            </Link> */}
+            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+              <h4>
+                <b>Login</b> below
+              </h4>
+              <p className="grey-text text-darken-1">
+                {/* Don't have an account? <Link to="/register">Register</Link> */}
+              </p>
             </div>
+            <form noValidate onSubmit={this.onSubmit}>
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.email}
+                  error={errors.email}
+                  id="email"
+                  type="email"
+                />
+                <label htmlFor="email">Email</label>
+              </div>
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.password}
+                  error={errors.password}
+                  id="password"
+                  type="password"
+                />
+                <label htmlFor="password">Password</label>
+              </div>
+              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                <button
+                  style={{
+                    width: "150px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem",
+                  }}
+                  type="submit"
+                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                >
+                  Login
+                </button>
+              </div>
+            </form>
           </div>
-        )}
-      </main>
+        </div>
+      </div>
     );
   }
 }
-
 export default Login;
+
+// render() {
+//     return (
+//       <main>
+//         {this.props.show && (
+//           <div id="modal">
+//             <div className="modal-content">
+//               <span className="close" onClick={this.props.hideModal}>
+//                 &times;
+//               </span>
+//               <div className="hdr-text">
+//                 <div className="form-switch">
+//                   <span className="login" onClick={this.props.showLogin}>
+//                     Login
+//                   </span>
+//                   <span className="signup" onClick={this.props.showSignUp}>
+//                     Sign Up
+//                   </span>
+//                   <span className="active load"> </span>
+//                 </div>
+//               </div>
+//               {this.props.login && (
+//                 <div className="loginform">
+//                   <h2>Login</h2>
+//                   <form id="login-form" encType="multipart/form-data">
+//                     <label> Username:</label>
+//                     <input type="text" id="username" name="username" />
+//                     <label> Password:</label>
+//                     <input type="text" id="userpwd" name="password" />
+//                     <div className="submitBtn active">
+//                       <a>
+//                         <label
+//                           onClick={() => {
+//                             validateLoginForm();
+//                           }}
+//                         >
+//                           Login
+//                         </label>
+//                       </a>
+//                     </div>
+//                   </form>
+//                 </div>
+//               )}
+//               {this.props.signup && (
+//                 <div className="signupform">
+//                   <h2>Sign Up</h2>
+//                   <form id="signup-form" encType="multipart/form-data">
+//                     <label> Username:</label>
+//                     <input type="text" id="username" name="username" />
+//                     <label> Password:</label>
+//                     <input type="text" id="userpwd" name="password" />
+//                     <div className="submitBtn">
+//                       <a className="signup">
+//                         <label
+//                           onClick={() => {
+//                             validateSignUpForm();
+//                           }}
+//                         >
+//                           Sign Up
+//                         </label>
+//                       </a>
+//                     </div>
+//                   </form>
+//                 </div>
+//               )}
+//             </div>
+//           </div>
+//         )}
+//       </main>
+//     );
+//   }

@@ -4,11 +4,18 @@ import Activity from "./Activity";
 import Loader from "./Loader";
 import Login from "./Login";
 import Nav from "./Nav";
+import Widgets from "./Widgets";
 
 class Landing extends Component {
   constructor(props) {
     super(props);
-    this.state = { show: true, login: true, signup: false };
+    this.state = {
+      show: true,
+      login: true,
+      signup: false,
+      isLoggedIn: false,
+      currentUser: "",
+    };
   }
 
   showModal = () => {
@@ -36,35 +43,20 @@ class Landing extends Component {
     $(".active").removeClass("load");
     $(".active").removeClass("slide");
     $(".active").addClass("slide-back");
-    $(".modal-content").removeClass("animate__animated animate__fadeInDownBig");
-    $(".modal-content").addClass("animate__animated animate__fadeOutDownBig");
-    setTimeout(() => {
-      this.setState({ login: true, signup: false });
-      $(".modal-content").removeClass(
-        "animate__animated animate__fadeOutDownBig"
-      );
-      $(".modal-content").addClass("animate__animated animate__fadeInDownBig");
-    }, 500);
+    this.setState({ login: true, signup: false });
   };
 
   showSignUp = () => {
     $(".active").removeClass("load");
     $(".active").removeClass("slide-back");
     $(".active").addClass("slide");
-    $(".modal-content").removeClass("animate__animated animate__fadeInDownBig");
-    $(".modal-content").addClass("animate__animated animate__fadeOutDownBig");
-    setTimeout(() => {
-      this.setState({ login: false, signup: true });
-      $(".modal-content").removeClass(
-        "animate__animated animate__fadeOutDownBig"
-      );
-      $(".modal-content").addClass("animate__animated animate__fadeInDownBig");
-    }, 500);
+    this.setState({ login: false, signup: true });
   };
 
   render() {
+    const isLoggedIn = this.state.isLoggedIn;
     return (
-      <div className="wrapper">
+      <main>
         <Login
           show={this.state.show}
           login={this.state.login}
@@ -73,10 +65,9 @@ class Landing extends Component {
           showSignUp={this.showSignUp}
           hideModal={this.hideModal}
         />
-        <Nav showModal={this.showModal} />
-        <Activity />
-        <Loader />
-      </div>
+        <Nav showModal={this.showModal} currentUser={this.currentUser} />
+        {isLoggedIn ? <Widgets /> : <Activity />}
+      </main>
     );
   }
 }
