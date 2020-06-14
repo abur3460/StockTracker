@@ -1,8 +1,6 @@
 import axios from "axios";
 import $ from "jquery";
-export const TOGGLE_MODAL = "TOGGLE_MODAL";
 export const FETCHING_DATA_SUCCESS = "FETCHING_DATA_SUCCESS";
-
 var key = process.env.REACT_APP_KEY;
 
 const URL =
@@ -13,21 +11,10 @@ export const fetchActivity = () => (dispatch) => {
   axios
     .get(URL)
     .then((res) => {
-      document.getElementById("loading").className =
-        "animate__animated animate__fadeIn";
-      setTimeout(() => {
-        document.getElementById("loading").className =
-          "animate__animated animate__fadeOut";
-        setTimeout(() => {
-          document.getElementById("table").className =
-            "animate__animated animate__fadeIn";
-          console.log(res.data);
-          dispatch({
-            type: FETCHING_DATA_SUCCESS,
-            payload: res.data,
-          });
-        }, 200);
-      }, 3000);
+      dispatch({
+        type: FETCHING_DATA_SUCCESS,
+        payload: res.data,
+      });
     })
     .catch((err) => console.log(err));
 };

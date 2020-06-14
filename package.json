@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/abur3460/CryptoTracker#readme",
   "dependencies": {
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.2.0",
@@ -28,9 +30,11 @@
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.18",
+    "mui-datatables": "^3.0.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "path": "^0.12.7",
+    "react-card-flip": "^1.0.10",
     "validator": "^13.1.1"
   }
 }

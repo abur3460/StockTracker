@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
-import Activity from "./Activity";
+import Home from "./Home";
 import Loader from "./Loader";
 import Login from "./Login";
 import Nav from "./Nav";
@@ -15,16 +15,34 @@ class Landing extends Component {
       signup: false,
       isLoggedIn: false,
       currentUser: "",
+      table: false,
     };
   }
 
-  showModal = () => {
-    this.setState({ show: true });
+  showTable = async () => {
+    await this.setState({ table: true });
+    setTimeout(() => {
+      document.getElementById("loading").className =
+        "animate__animated animate__fadeIn";
+      setTimeout(() => {
+        document.getElementById("loading").className =
+          "animate__animated animate__fadeOut";
+        setTimeout(() => {
+          document.getElementById("table").className =
+            "animate__animated animate__fadeIn";
+        }, 200);
+      }, 3000);
+    }, 300);
+  };
+
+  showModal = async () => {
+    await this.setState({ show: true });
     var x = window.matchMedia("(max-width: 700px)");
     if (x.matches) {
       $("#nav").slideToggle();
     }
-    $("#modal")
+    $("#signup-content").css("opacity", "1");
+    $(".modal")
       .addClass("animate__animated animate__fadeIn")
       .css("display", "block");
     $(".modal-content")
@@ -33,6 +51,7 @@ class Landing extends Component {
   };
 
   hideModal = () => {
+    $("#signup-content").css("display", "none");
     $(".modal-content").addClass("animate__animated animate__fadeOut");
     setTimeout(() => {
       this.setState({ show: false });
@@ -43,10 +62,14 @@ class Landing extends Component {
     $(".active").removeClass("load");
     $(".active").removeClass("slide");
     $(".active").addClass("slide-back");
+    $("#signup-content").css("opacity", "0");
+    $("#login-content").css("opacity", "1");
     this.setState({ login: true, signup: false });
   };
 
   showSignUp = () => {
+    $("#signup-content").css("opacity", "1");
+    $("#login-content").css("opacity", "0");
     $(".active").removeClass("load");
     $(".active").removeClass("slide-back");
     $(".active").addClass("slide");
@@ -66,7 +89,11 @@ class Landing extends Component {
           hideModal={this.hideModal}
         />
         <Nav showModal={this.showModal} currentUser={this.currentUser} />
-        {isLoggedIn ? <Widgets /> : <Activity />}
+        {isLoggedIn ? (
+          <Widgets />
+        ) : (
+          <Home showTable={this.showTable} table={this.state.table} />
+        )}
       </main>
     );
   }
