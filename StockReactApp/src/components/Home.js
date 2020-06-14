@@ -16,7 +16,7 @@ const Home = (props) => {
       >
         Check Current Prices
       </span>
-      {props.table ? <DataTable /> : null}
+      {props.table ? <DataTable activity={props.activity} /> : null}
     </div>
   );
 };

@@ -19,17 +19,14 @@ class Landing extends Component {
     };
   }
 
-  showTable = async () => {
-    await this.setState({ table: true });
+  showTable = () => {
+    this.setState({ table: true });
     setTimeout(() => {
-      document.getElementById("loading").className =
-        "animate__animated animate__fadeIn";
+      $("#loading").addClass("animate__animated animate__fadeIn");
       setTimeout(() => {
-        document.getElementById("loading").className =
-          "animate__animated animate__fadeOut";
+        $("#loading").addClass("animate__animated animate__fadeOut");
         setTimeout(() => {
-          document.getElementById("table").className =
-            "animate__animated animate__fadeIn";
+          $("#table").addClass("animate__animated animate__fadeIn");
         }, 200);
       }, 3000);
     }, 300);

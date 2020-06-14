@@ -181,12 +181,11 @@
   }
 
   #loading {
-    width: 60vw;
+    width: 14rem;
     opacity: 0;
-    position: absolute;
-    top: 64vh;
-    left: 53.5%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: 1.5rem;
+    margin: 0 auto;
     z-index: -1;
     .circle {
       display: inline-block;
