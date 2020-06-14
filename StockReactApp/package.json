@@ -19,6 +19,7 @@
     "jquery": "^3.5.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.18",
+    "mui-datatables": "^3.0.0",
     "node-sass": "^4.14.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
