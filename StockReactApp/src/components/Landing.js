@@ -18,7 +18,6 @@ class Landing extends Component {
       table: false,
     };
   }
-
   showTable = () => {
     this.setState({ table: true });
     setTimeout(() => {
@@ -39,6 +38,7 @@ class Landing extends Component {
       $("#nav").slideToggle();
     }
     $("#signup-content").css("opacity", "1");
+    $("#login-content").css("opacity", "1");
     $(".modal")
       .addClass("animate__animated animate__fadeIn")
       .css("display", "block");
@@ -48,18 +48,26 @@ class Landing extends Component {
   };
 
   hideModal = () => {
-    $("#signup-content").css("display", "none");
-    $(".modal-content").addClass("animate__animated animate__fadeOut");
-    setTimeout(() => {
-      this.setState({ show: false });
-    }, 400);
+    if (this.state.signup == true) {
+      $("#login-content").css("display", "none");
+      $(".modal-content").addClass("animate__animated animate__fadeOut");
+      setTimeout(() => {
+        this.setState({ show: false, login: true, signup: false });
+      }, 400);
+    } else {
+      $("#signup-content").css("display", "none");
+      $(".modal-content").addClass("animate__animated animate__fadeOut");
+      setTimeout(() => {
+        this.setState({ show: false, login: true, signup: false });
+      }, 400);
+    }
   };
 
   showLogin = () => {
-    $(".active").removeClass("load");
     $(".active").removeClass("slide");
     $(".active").addClass("slide-back");
     $("#signup-content").css("opacity", "0");
+    $("#login-content").css("display", "auto");
     $("#login-content").css("opacity", "1");
     this.setState({ login: true, signup: false });
   };

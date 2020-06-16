@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import $ from "jquery";
+import { Link } from "react-router-dom";
+import Landing from "./Landing";
 
 class Nav extends Component {
   constructor(props) {
@@ -38,7 +40,7 @@ class Nav extends Component {
         <div id="glowbar-mobile"></div>
         <div className="menu collapsed" id="nav">
           <div className="first">
-            <a to="/dashboard">Home</a>
+            <Link to="/">Home</Link>
             <a className="dropdown">
               <span>Trackers</span>
               {/* <ul className="dropdown-menu">

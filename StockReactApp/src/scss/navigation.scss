@@ -10,10 +10,14 @@
     .menu {
       display: flex;
       justify-content: space-between;
-    }
-    .menu {
       padding-top: 0.8rem;
       margin: 0 4rem;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+    .menu {
     }
     .menu a {
       text-transform: uppercase;

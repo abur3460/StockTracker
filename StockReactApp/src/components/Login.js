@@ -9,8 +9,7 @@ class Login extends Component {
     this.state = {
       s_email: "",
       s_password: "",
-      firstname: "",
-      lastname: "",
+      fname: "",
       l_email: "",
       l_password: "",
       errors: {},
@@ -21,13 +20,25 @@ class Login extends Component {
   onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
+
   onSubmit = (e) => {
     e.preventDefault();
     const userData = {
       email: this.state.email,
       password: this.state.password,
     };
-    console.log(userData);
+    console.log("user:", userData);
+  };
+
+  onSubmit_newUser = (e) => {
+    e.preventDefault();
+    const newUser = {
+      name: this.state.fname,
+      email: this.state.s_email,
+      password: this.state.s_password,
+      password2: this.state.password2,
+    };
+    console.log("new user:", newUser);
   };
 
   handleClick(int) {
@@ -42,6 +53,20 @@ class Login extends Component {
     }
   }
 
+  closeModal = () => {
+    if (this.props.signup == true) {
+      this.props.hideModal();
+
+      setTimeout(() => {
+        this.props.showLogin();
+        this.setState({ isFlipped: false });
+      }, 300);
+    } else {
+      this.props.hideModal();
+      this.props.showLogin();
+    }
+  };
+
   render() {
     const { errors } = this.state;
     return (
@@ -53,7 +78,7 @@ class Login extends Component {
               flipDirection="horizontal"
             >
               <div className="modal-content" id="login-content">
-                <span className="close" onClick={this.props.hideModal}>
+                <span className="close" onClick={this.closeModal}>
                   &times;
                 </span>
                 <div className="hdr-text">
@@ -93,6 +118,7 @@ class Login extends Component {
                       id="l_email"
                       type="email"
                     />
+
                     <label> Password:</label>
                     <input
                       type="text"
@@ -102,16 +128,15 @@ class Login extends Component {
                       id="l_password"
                       type="password"
                     />
-                    <div className="submitBtn active">
-                      <a type="submit">
-                        <label>Login</label>
-                      </a>
-                    </div>
+
+                    <button className="submitBtn" type="submit">
+                      Login
+                    </button>
                   </form>
                 </div>
               </div>
               <div className="modal-content" id="signup-content">
-                <span className="close" onClick={this.props.hideModal}>
+                <span className="close" onClick={this.closeModal}>
                   &times;
                 </span>
                 <div className="hdr-text">
@@ -139,38 +164,22 @@ class Login extends Component {
                   <h2>Sign Up</h2>
                   <form
                     id="signup-form"
-                    encType="multipart/form-data"
                     noValidate
-                    onSubmit={this.onSubmit}
+                    onSubmit={this.onSubmit_newUser}
                   >
-                    <div className="name-wrapper">
-                      <label>
-                        {" "}
-                        First name:
-                        <input
-                          onChange={this.onChange}
-                          value={this.state.email}
-                          error={errors.email}
-                          id="fname"
-                          type="name"
-                        />
-                      </label>
-                      <label>
-                        {" "}
-                        Last name:
-                        <input
-                          onChange={this.onChange}
-                          value={this.state.firstname}
-                          error={errors.lastname}
-                          id="lname"
-                          type="name"
-                        />
-                      </label>
-                    </div>
+                    <label>Full name:</label>
+                    <input
+                      onChange={this.onChange}
+                      value={this.state.fname}
+                      error={errors.name}
+                      id="fname"
+                      type="name"
+                    />
+
                     <label> Email:</label>
                     <input
                       onChange={this.onChange}
-                      value={this.state.email}
+                      value={this.state.s_email}
                       error={errors.email}
                       id="s_email"
                       type="email"
@@ -179,16 +188,14 @@ class Login extends Component {
                     <label> Password:</label>
                     <input
                       onChange={this.onChange}
-                      value={this.state.password}
+                      value={this.state.s_password}
                       error={errors.password}
                       id="s_password"
                       type="password"
                     />
-                    <div className="submitBtn">
-                      <a className="signup" type="submit">
-                        <label>Sign Up</label>
-                      </a>
-                    </div>
+                    <button className="submitBtn" type="submit">
+                      Sign Up
+                    </button>
                   </form>
                 </div>
               </div>

@@ -13,7 +13,7 @@
     .modal-content {
       position: relative;
       background: rgb(77, 77, 77);
-      width: 80vw;
+      width: 20rem;
       height: 28rem;
       opacity: 0;
       margin: auto;
@@ -22,7 +22,7 @@
         letter-spacing: 1px;
         display: flex;
         justify-content: center;
-        margin-left: 2rem;
+        margin-left: 2.2rem;
         text-transform: uppercase;
         font-weight: bold;
         position: absolute;
@@ -92,7 +92,6 @@
           margin: 5px auto;
           height: 2rem;
           width: 75%;
-          text-transform: uppercase;
           border: none;
           background: rgb(49, 49, 49);
           align-self: center;
@@ -204,36 +203,33 @@
     .modal-content {
       position: relative;
       background: rgb(77, 77, 77);
-      width: 20vw;
-      height: 60vh;
-      margin: 0 auto;
+      width: 20rem;
+      height: 28rem;
       opacity: 0;
-      .signupform {
-        opacity: 0;
-      }
+      margin: auto;
+      top: 5rem;
       .form-switch {
         letter-spacing: 1px;
         display: flex;
         justify-content: center;
-        margin-left: 2rem;
+        margin-left: 2.2rem;
         text-transform: uppercase;
         font-weight: bold;
         position: absolute;
-        bottom: 0;
-        left: 15%;
+        bottom: 2%;
+        left: 10%;
       }
       .form-switch .active {
-        border-radius: 15px;
         z-index: -1;
         position: absolute;
         top: 10px;
-        left: -17px;
-        width: 7rem;
+        left: -10px;
+        width: 6rem;
         height: 3rem;
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
         &.slide {
           transition: margin 0.2s ease-in-out;
-          margin-left: 112px;
+          margin-left: 105px;
         }
         &.slide-back {
           transition: margin 0.2s ease-in-out;
@@ -242,7 +238,6 @@
       }
 
       .form-switch .login {
-        border-radius: 10px;
         margin: 1rem 1rem 1rem -1rem;
         padding: 10px;
         cursor: pointer;
@@ -250,18 +245,20 @@
       }
 
       .form-switch .signup {
-        border-radius: 10px;
         margin: 1rem 0.3rem;
         padding: 10px;
         cursor: pointer;
       }
 
       h2 {
+        width: 9rem;
         text-align: center;
         text-transform: uppercase;
         letter-spacing: 2px;
-        margin: 2rem 0 4vh 0;
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
+        position: relative;
+        top: 2rem;
+        margin: 0 auto;
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -269,85 +266,104 @@
         font-size: 2rem;
       }
       form {
+        position: relative;
+        top: 3rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
-      }
-      form label {
-        text-align: center;
-        font-size: 1rem;
-      }
-      form input {
-        font-family: "Open Sans", sans-serif;
-        color: white;
-        margin: 5px auto;
-        height: 2rem;
-        width: 50%;
-        text-transform: uppercase;
-        border: none;
-        background: rgb(49, 49, 49);
-        align-self: center;
-        margin-bottom: 2rem;
-      }
-      form .submitBtn {
-        align-self: center;
-        z-index: 1;
-      }
-      form .submitBtn label {
-        text-transform: uppercase;
-        cursor: pointer;
-      }
-      form .submitBtn a {
-        text-align: center;
-        padding: 8px;
-        line-height: 25px;
-        cursor: pointer;
-        border: 2px solid;
-        border-image-slice: 1;
-        border-image-source: linear-gradient(75deg, #cc19cc, #6f20d6);
-        position: relative;
-        z-index: 10;
-        color: white;
-        transition: all 0.2s;
-      }
 
-      form .submitBtn a:before {
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
-        display: inline-flex;
-        content: "";
-        width: 4.5rem !important;
-        height: 2.4rem !important;
-        position: absolute;
-        top: -2px;
-        left: 0;
-        opacity: 0;
-        z-index: -1;
-        transition: all 0.1s ease-in-out;
-      }
-      form .submitBtn .signup:before {
-        background: linear-gradient(75deg, #cc19cc, #6f20d6);
-        display: inline-flex;
-        content: "";
-        width: 100% !important;
-        height: 2.5rem !important;
-        position: absolute;
-        top: -2px;
-        left: 0;
-        opacity: 0;
-        z-index: -1;
-        transition: all 0.1s ease-in-out;
-      }
-      form .submitBtn:hover a:before {
-        opacity: 1;
+        label {
+          text-align: center;
+          font-size: 1rem;
+        }
+        input {
+          font-family: "Open Sans", sans-serif;
+          color: white;
+          margin: 5px auto;
+          height: 2rem;
+          width: 75%;
+          border: none;
+          background: rgb(49, 49, 49);
+          align-self: center;
+          margin-bottom: 1rem;
+        }
+        .name-wrapper {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          label {
+            margin: 0 4px 0 4px;
+            width: 36.2%;
+            display: flex;
+            flex-direction: column;
+            input {
+              width: 100%;
+            }
+          }
+        }
+        .submitBtn {
+          align-self: center;
+          z-index: 1;
+          margin-top: 0.5rem;
+        }
+        .submitBtn label {
+          text-transform: uppercase;
+          cursor: pointer;
+        }
+        .submitBtn a {
+          text-align: center;
+          padding: 8px;
+          line-height: 25px;
+          cursor: pointer;
+          border: 2px solid;
+          border-image-slice: 1;
+          border-image-source: linear-gradient(342deg, #d19458, #8b1c7e);
+          position: relative;
+          z-index: 10;
+          color: white;
+          transition: all 0.2s;
+        }
+
+        .submitBtn a:before {
+          background: linear-gradient(342deg, #d19458, #8b1c7e);
+          display: inline-flex;
+          content: "";
+          width: 4.5rem !important;
+          height: 2.4rem !important;
+          position: absolute;
+          top: -2px;
+          left: 0;
+          opacity: 0;
+          z-index: -1;
+          transition: all 0.1s ease-in-out;
+        }
+        .submitBtn .signup:before {
+          background: linear-gradient(342deg, #d19458, #8b1c7e);
+          display: inline-flex;
+          content: "";
+          width: 100% !important;
+          height: 2.5rem !important;
+          position: absolute;
+          top: -2px;
+          left: 0;
+          opacity: 0;
+          z-index: -1;
+          transition: all 0.1s ease-in-out;
+        }
+        .submitBtn:hover a:before {
+          opacity: 1;
+        }
       }
 
       .close {
-        position: relative;
+        position: absolute;
+        top: 0;
+        right: 0;
         color: #ffffff;
-        float: right;
-        font-size: 20px;
+        font-size: 40px;
         font-weight: bold;
-        padding: 5px 10px;
+        padding: 0 14px;
         transition: all 0.2s;
         z-index: 1000;
       }
@@ -377,7 +393,7 @@
     .modal-content {
       position: relative;
       background: rgb(77, 77, 77);
-      width: 20vw;
+      width: 24rem;
       height: 28rem;
       margin: auto;
       padding-top: 1rem;
@@ -387,7 +403,7 @@
         color: rgb(200, 200, 200);
         display: flex;
         justify-content: center;
-        margin-left: 2rem;
+        margin-left: 2.3rem;
         text-transform: uppercase;
         font-weight: bold;
         position: absolute;
@@ -479,7 +495,6 @@
           margin: 5px auto;
           height: 2rem;
           width: 60%;
-          text-transform: uppercase;
           border: none;
           background: rgb(49, 49, 49);
           align-self: center;
@@ -505,15 +520,13 @@
         }
 
         .submitBtn {
+          font-weight: bold;
+          width: 7rem;
+          text-transform: uppercase;
+          font-size: 0.9rem;
           align-self: center;
           z-index: 1;
-          margin-top: 1rem;
-        }
-        .submitBtn label {
-          text-transform: uppercase;
-          cursor: pointer;
-        }
-        .submitBtn a {
+          background: transparent;
           text-align: center;
           padding: 8px;
           line-height: 25px;
@@ -527,12 +540,12 @@
           transition: all 0.2s;
         }
 
-        .submitBtn a:before {
+        .submitBtn:before {
           background: linear-gradient(342deg, #d19458, #8b1c7e);
           display: inline-flex;
           content: "";
           width: 100%;
-          height: 2.5rem;
+          height: calc(100% + 2px);
           position: absolute;
           top: -2px;
           left: 0;
@@ -540,20 +553,7 @@
           z-index: -1;
           transition: all 0.1s ease-in-out;
         }
-        .submitBtn .signup:before {
-          background: linear-gradient(342deg, #d19458, #8b1c7e);
-          display: inline-flex;
-          content: "";
-          width: 100% !important;
-          height: 2.5rem !important;
-          position: absolute;
-          top: -2px;
-          left: 0;
-          opacity: 0;
-          z-index: -1;
-          transition: all 0.1s ease-in-out;
-        }
-        .submitBtn:hover a:before {
+        .submitBtn:hover:before {
           opacity: 1;
         }
       }
