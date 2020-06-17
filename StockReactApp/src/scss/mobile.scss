@@ -91,26 +91,21 @@
   .main {
     color: white;
     .m-title {
-      background: linear-gradient(342deg, #d19458, #8b1c7e);
+      background: linear-gradient(to right, #8b1c7e, #d19458);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
       word-spacing: 10px;
       font-family: "Exo", sans-serif;
-      font-size: 1.8rem;
-      width: 90vw;
+      font-size: 1.7rem;
+      width: 7rem;
       text-align: center;
       margin: 7.5rem auto 0 auto;
       line-height: 2.2rem;
       font-weight: bold;
-      .title-line {
-        margin-top: 0;
-        width: 6rem;
-        height: 2px;
-        border: none;
-        background: linear-gradient(342deg, #d19458, #8b1c7e);
-      }
+      position: relative;
+      top: -136px;
     }
     .img-wrapper {
       display: flex;
@@ -126,9 +121,10 @@
       }
       .border-wrapper {
         position: relative;
-        -webkit-filter: blur(5px);
-        filter: blur(5px);
+        -webkit-filter: blur(8px);
+        filter: blur(8px);
         span:after {
+          opacity: 0.6;
           content: "";
           left: -7px;
           top: 100px;

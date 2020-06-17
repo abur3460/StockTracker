@@ -13,10 +13,7 @@ const Home = (props) => {
         </div>
         <img src={require("../img/logo.png")} />
       </div>
-      <h1 className="m-title">
-        Tread
-        <hr className="title-line" id="underline" />
-      </h1>
+      <h1 className="m-title">Tread</h1>
       <p>Major index tracking with real-time prices, volumes, and more. </p>
       <span
         className="btn"
