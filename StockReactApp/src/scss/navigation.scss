@@ -1,38 +1,221 @@
 @media only screen and (min-width: 1201px) {
   .navbar {
-    width: 100vw;
-    height: 3rem;
+    width: 8rem;
+    height: 100vh;
     background: rgb(39, 39, 39);
     font-family: "Orbitron", sans-serif;
+    position: absolute;
+    left: 0;
     .mobile-top-nav {
       display: none;
     }
     .menu {
-      display: flex;
-      justify-content: space-between;
+      width: 8rem;
+      height: 100vh;
       padding-top: 0.8rem;
-      margin: 0 4rem;
-      a {
-        text-decoration: none;
-        color: white;
+      .img-wrapper {
+        display: flex;
+        justify-content: center;
+
+        img {
+          z-index: 2;
+          width: 60px;
+          height: 60px;
+        }
+        .border-wrapper {
+          -webkit-filter: blur(5px);
+          filter: blur(5px);
+          span:after {
+            content: "";
+            left: -7px;
+            position: absolute;
+            width: 73px;
+            height: 65px;
+            -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+
+            background: linear-gradient(
+              470deg,
+              #8b1c7e,
+              #8b1c7e,
+              #d19458,
+              #d19458
+            );
+            background-size: 115%;
+            background-position: -10px;
+          }
+        }
       }
-    }
-    .menu {
-    }
-    .menu a {
-      text-transform: uppercase;
-      cursor: pointer;
-      margin: 0 1rem;
+      .nav-line {
+        background: linear-gradient(to right, #8b1c7e, #d19458);
+        border: none;
+        height: 2px;
+        margin-top: 2rem;
+        width: 6rem;
+      }
+      .mobile-links {
+        display: none;
+      }
+      .links {
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-transform: uppercase;
+        a {
+          width: 100%;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          text-decoration: none;
+          margin: 0 auto;
+
+          svg {
+            color: rgb(122, 122, 122);
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: color 0.3s ease-out;
+          }
+          p {
+            margin-top: 7px;
+            opacity: 0;
+            max-width: 0;
+            text-decoration: none;
+            transition: margin 0.3s, max-width 0.3s, opacity 0.2s, color 0.2s;
+            color: rgb(122, 122, 122);
+            float: right;
+            display: block;
+            font-size: 0.7rem;
+          }
+          &:hover p,
+          &:hover svg {
+            color: white;
+          }
+
+          &:hover p {
+            opacity: 1;
+            max-width: 150px;
+            margin: 7px 0 0 10px;
+            transition: margin 0, max-width 0.6s ease-in, opacity 0.1s,
+              color 0.2s;
+          }
+        }
+
+        .first {
+          color: rgb(122, 122, 122);
+          margin-top: 3rem;
+          display: flex;
+          flex-direction: column;
+          .dropdown-wrapper {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            text-decoration: none;
+            margin: 3rem auto;
+            cursor: pointer;
+
+            svg {
+              color: rgb(122, 122, 122);
+              font-size: 1.5rem;
+              text-decoration: none;
+              text-transform: uppercase;
+              cursor: pointer;
+              transition: color 0.3s ease-out;
+            }
+            p {
+              margin-top: 7px;
+              opacity: 0;
+              max-width: 0;
+              text-decoration: none;
+              transition: margin 0.3s, max-width 0.4s, opacity 0.2s, color 0.2s;
+              color: rgb(122, 122, 122);
+              float: right;
+              display: block;
+              font-size: 0.7rem;
+            }
+            &:hover p,
+            &:hover svg {
+              color: white;
+            }
+
+            &:hover p {
+              opacity: 1;
+              max-width: 150px;
+              margin: 7px 0 0 10px;
+              transition: margin 0, max-width 0.6s ease-in, opacity 0.1s,
+                color 0.2s;
+            }
+
+            &:hover {
+              color: white;
+            }
+            .dropdown.hidden {
+              display: none;
+            }
+          }
+        }
+        .second {
+          color: rgb(122, 122, 122);
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+
+          cursor: pointer;
+          height: 24px;
+          margin-bottom: 3rem;
+          svg {
+            overflow: hidden;
+            text-decoration: none;
+            margin: 0 auto;
+            color: rgb(122, 122, 122);
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: color 0.3s ease-out;
+          }
+          p {
+            margin-top: 7px;
+            opacity: 0;
+            max-width: 0;
+            text-decoration: none;
+            transition: margin 0.3s, max-width 0.4s, opacity 0.2s, color 0.2s;
+            color: rgb(122, 122, 122);
+            float: right;
+            display: block;
+            font-size: 0.7rem;
+          }
+          &:hover p,
+          &:hover svg {
+            color: white;
+          }
+
+          &:hover p {
+            opacity: 1;
+            max-width: 150px;
+            margin: 7px 1rem 0 -20px;
+            transition: margin 0, max-width 0.6s ease-in, opacity 0.1s,
+              color 0.2s;
+          }
+        }
+      }
     }
     #glowbar-mobile {
       display: none;
     }
     #glowbar {
-      background: linear-gradient(342deg, #d19458, #8b1c7e);
-      position: relative;
-      top: 1rem;
-      width: 100vw;
-      height: 0.7rem;
+      z-index: -1;
+      background: linear-gradient(to bottom, #d19458, #8b1c7e);
+      position: fixed;
+      top: 0;
+      left: 8rem;
+      width: 0.2rem;
+      height: 100vh;
       box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.3), 0 2px 3px rgba(0, 0, 0, 0.12),
         0 4px 4px rgba(0, 0, 0, 0.12);
     }

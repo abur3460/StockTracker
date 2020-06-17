@@ -113,15 +113,13 @@
           }
         }
         .submitBtn {
+          font-weight: bold;
+          width: 7rem;
+          text-transform: uppercase;
+          font-size: 0.9rem;
           align-self: center;
           z-index: 1;
-          margin-top: 0.5rem;
-        }
-        .submitBtn label {
-          text-transform: uppercase;
-          cursor: pointer;
-        }
-        .submitBtn a {
+          background: transparent;
           text-align: center;
           padding: 8px;
           line-height: 25px;
@@ -135,12 +133,12 @@
           transition: all 0.2s;
         }
 
-        .submitBtn a:before {
+        .submitBtn:before {
           background: linear-gradient(342deg, #d19458, #8b1c7e);
           display: inline-flex;
           content: "";
-          width: 4.5rem !important;
-          height: 2.4rem !important;
+          width: 100%;
+          height: calc(100% + 2px);
           position: absolute;
           top: -2px;
           left: 0;
@@ -148,20 +146,7 @@
           z-index: -1;
           transition: all 0.1s ease-in-out;
         }
-        .submitBtn .signup:before {
-          background: linear-gradient(342deg, #d19458, #8b1c7e);
-          display: inline-flex;
-          content: "";
-          width: 100% !important;
-          height: 2.5rem !important;
-          position: absolute;
-          top: -2px;
-          left: 0;
-          opacity: 0;
-          z-index: -1;
-          transition: all 0.1s ease-in-out;
-        }
-        .submitBtn:hover a:before {
+        .submitBtn:hover:before {
           opacity: 1;
         }
       }

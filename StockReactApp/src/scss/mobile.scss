@@ -2,7 +2,7 @@
   .navbar {
     font-family: "Montserrat", sans-serif !important;
     text-transform: uppercase;
-    z-index: 1;
+    z-index: 3;
     background: #2e2d2d;
     flex-direction: column;
     text-align: center;
@@ -13,21 +13,39 @@
     margin-top: -1px;
     box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.3), 0 2px 3px rgba(0, 0, 0, 0.12),
       0 4px 4px rgba(0, 0, 0, 0.12);
+    img {
+      display: none;
+    }
     .menu {
       margin-top: 1.8rem;
       z-index: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      .first {
-        display: flex;
-        flex-direction: column;
+      .links {
+        display: none;
+      }
+      .mobile-links {
+        p {
+          margin: 0.9rem auto;
+        }
+        .first {
+          display: flex;
+          flex-direction: column;
+          p {
+            margin: 0.2rem auto;
+          }
+        }
+        .second {
+        }
       }
     }
     .collapsed {
       display: none;
     }
-
+    .img-wrapper {
+      display: none;
+    }
     .mobile-top-nav {
       display: flex;
       flex-direction: column;
@@ -79,13 +97,58 @@
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
       word-spacing: 10px;
-      font-family: "Open Sans", sans-serif;
+      font-family: "Exo", sans-serif;
       font-size: 1.8rem;
       width: 90vw;
       text-align: center;
-      margin: 7.5rem auto 2rem auto;
+      margin: 7.5rem auto 0 auto;
       line-height: 2.2rem;
       font-weight: bold;
+      .title-line {
+        margin-top: 0;
+        width: 6rem;
+        height: 2px;
+        border: none;
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
+      }
+    }
+    .img-wrapper {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin: 1rem auto;
+      img {
+        z-index: 1;
+        width: 80px;
+        height: 80px;
+        position: relative;
+        top: 100px;
+      }
+      .border-wrapper {
+        position: relative;
+        -webkit-filter: blur(5px);
+        filter: blur(5px);
+        span:after {
+          content: "";
+          left: -7px;
+          top: 100px;
+          position: absolute;
+          width: 93px;
+          height: 85px;
+          -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+
+          background: linear-gradient(
+            470deg,
+            #8b1c7e,
+            #8b1c7e,
+            #d19458,
+            #d19458
+          );
+          background-size: 115%;
+          background-position: -10px;
+        }
+      }
     }
     p {
       text-align: center;

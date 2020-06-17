@@ -7,7 +7,16 @@ const Home = (props) => {
   console.log(props);
   return (
     <div className="main">
-      <h1 className="m-title">Stock Market Tracker</h1>
+      <div className="img-wrapper">
+        <div className="border-wrapper">
+          <span></span>
+        </div>
+        <img src={require("../img/logo.png")} />
+      </div>
+      <h1 className="m-title">
+        Tread
+        <hr className="title-line" id="underline" />
+      </h1>
       <p>Major index tracking with real-time prices, volumes, and more. </p>
       <span
         className="btn"

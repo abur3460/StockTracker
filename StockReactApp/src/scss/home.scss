@@ -2,18 +2,40 @@
   .main {
     color: white;
     .m-title {
-      font-weight: bold;
+      font-family: "Exo", sans-serif;
       background: linear-gradient(342deg, #d19458, #8b1c7e);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
       word-spacing: 10px;
-      font-family: "Open Sans", sans-serif;
       font-size: 3rem;
-      width: 70%;
+      width: 10rem;
       text-align: center;
       margin: 4rem auto 0 auto;
+      .title-line {
+        margin-top: 5px;
+        width: 10rem;
+        height: 4px;
+        border: none;
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
+      }
+    }
+    .img-wrapper {
+      display: none;
+    }
+    h4 {
+      font-weight: bold;
+      background: linear-gradient(342deg, #d19458, #8b1c7e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      font-family: "Open Sans", sans-serif;
+      font-size: 1.4rem;
+      width: 20rem;
+      text-align: center;
+      margin: 2rem auto 0 auto;
     }
     p {
       font-size: 1.2rem;
@@ -41,7 +63,7 @@
       border-image-source: linear-gradient(342deg, #d19458, #8b1c7e);
       text-decoration: none;
       font-weight: bold;
-      margin: 2rem auto;
+      margin: 3.5rem auto;
       transition: all 0.2s ease-in-out;
     }
     .btn:hover {
