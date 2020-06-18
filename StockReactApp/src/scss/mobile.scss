@@ -11,8 +11,6 @@
     top: 0;
     width: 100vw;
     margin-top: -1px;
-    box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.3), 0 2px 3px rgba(0, 0, 0, 0.12),
-      0 4px 4px rgba(0, 0, 0, 0.12);
     img {
       display: none;
     }
@@ -80,11 +78,26 @@
       display: none;
     }
     #glowbar-mobile {
+      -webkit-filter: blur(1px);
+      filter: blur(1px);
       background: linear-gradient(342deg, #d19458, #8b1c7e);
       position: relative;
       top: 1rem;
       width: 100%;
-      height: 0.5rem;
+      height: 0.4rem;
+      z-index: -2;
+      &:after {
+        -webkit-filter: blur(2px);
+        filter: blur(2px);
+        content: "";
+        background: linear-gradient(342deg, #d19458, #8b1c7e);
+        position: absolute;
+        left: 0;
+        top: 0.3rem;
+        width: 100%;
+        height: 0.3rem;
+        z-index: -1;
+      }
     }
   }
 
