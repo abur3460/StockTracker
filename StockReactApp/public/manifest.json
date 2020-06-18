@@ -1,6 +1,6 @@
 {
-  "short_name": "Crypto Tracker",
-  "name": "Crypto Currency Tracker",
+  "short_name": "Trend",
+  "name": "Trend - Market Tracker",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
