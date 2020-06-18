@@ -2,37 +2,15 @@
   .main {
     color: white;
     .m-title {
-      font-family: "Exo", sans-serif;
-      background: linear-gradient(342deg, #d19458, #8b1c7e);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
-      word-spacing: 10px;
-      font-size: 3rem;
-      width: 10rem;
-      text-align: center;
-      margin: 4rem auto 0 auto;
+      display: none;
     }
     .img-wrapper {
       display: none;
     }
-    h4 {
-      font-weight: bold;
-      background: linear-gradient(342deg, #d19458, #8b1c7e);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
-      font-family: "Open Sans", sans-serif;
-      font-size: 1.4rem;
-      width: 20rem;
-      text-align: center;
-      margin: 2rem auto 0 auto;
-    }
+
     p {
       font-size: 1.2rem;
-      padding-top: 1rem;
+      margin-top: 5rem;
       text-align: center;
       width: 80%;
       font-family: "Open Sans", sans-serif;

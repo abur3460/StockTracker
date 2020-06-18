@@ -48,6 +48,7 @@ class Nav extends Component {
             <div className="border-wrapper">
               <span></span>
             </div>
+            <h1 className="m-title">TREND</h1>
             <img src={require("../img/logo.png")} />
           </div>
           <div className="links">

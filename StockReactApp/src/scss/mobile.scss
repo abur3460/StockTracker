@@ -98,20 +98,40 @@
       text-transform: uppercase;
       word-spacing: 10px;
       font-family: "Exo", sans-serif;
-      font-size: 1.7rem;
-      width: 7rem;
+      font-size: 1.638rem;
+      width: 80px;
       text-align: center;
       margin: 7.5rem auto 0 auto;
       line-height: 2.2rem;
       font-weight: bold;
       position: relative;
-      top: -136px;
+      top: -121px;
+      &:after {
+        -webkit-filter: blur(4px);
+        filter: blur(4px);
+        content: "TREND";
+        position: absolute;
+        left: -6px;
+        top: 0px;
+        background: linear-gradient(to right, #8b1c7e, #d19458);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        font-family: "Exo", sans-serif;
+        font-size: 1.7rem;
+        line-height: 2.2rem;
+        width: 90px;
+        text-align: center;
+        font-weight: bolder;
+        opacity: 1;
+      }
     }
     .img-wrapper {
       display: flex;
       justify-content: center;
       position: relative;
-      margin: 1rem auto;
+      margin: 2.5rem auto 0 auto;
       img {
         z-index: 1;
         width: 80px;
