@@ -112,19 +112,19 @@
       word-spacing: 10px;
       font-family: "Exo", sans-serif;
       font-size: 1.638rem;
-      width: 80px;
+      width: 95px;
       text-align: center;
       margin: 7.5rem auto 0 auto;
       line-height: 2.2rem;
       font-weight: bold;
       position: relative;
-      top: -121px;
+      top: -122px;
       &:after {
         -webkit-filter: blur(4px);
         filter: blur(4px);
         content: "TREND";
         position: absolute;
-        left: -6px;
+        left: -9px;
         top: 0px;
         background: linear-gradient(to right, #8b1c7e, #d19458);
         -webkit-background-clip: text;
@@ -134,7 +134,7 @@
         font-family: "Exo", sans-serif;
         font-size: 1.7rem;
         line-height: 2.2rem;
-        width: 90px;
+        width: 110px;
         text-align: center;
         font-weight: bolder;
         opacity: 1;
