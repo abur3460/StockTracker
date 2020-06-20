@@ -4,7 +4,7 @@ import Home from "./Home";
 import Loader from "./Loader";
 import Login from "./Login";
 import Nav from "./Nav";
-import Widgets from "./Widgets";
+import Dashboard from "./Dashboard";
 
 class Landing extends Component {
   constructor(props) {
@@ -95,7 +95,7 @@ class Landing extends Component {
         />
         <Nav showModal={this.showModal} currentUser={this.currentUser} />
         {isLoggedIn ? (
-          <Widgets />
+          <Dashboard />
         ) : (
           <Home showTable={this.showTable} table={this.state.table} />
         )}

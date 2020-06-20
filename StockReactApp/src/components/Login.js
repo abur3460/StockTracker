@@ -1,6 +1,17 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { registerUser, loginUser } from "../actions/authActions";
+import classnames from "classnames";
+
 import ReactCardFlip from "react-card-flip";
-// import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSignInAlt,
+  faArrowCircleRight,
+} from "@fortawesome/free-solid-svg-icons";
+
 import $ from "jquery";
 var i = 0;
 class Login extends Component {
@@ -9,6 +20,7 @@ class Login extends Component {
     this.state = {
       s_email: "",
       s_password: "",
+      s_password2: "",
       fname: "",
       l_email: "",
       l_password: "",
@@ -17,6 +29,26 @@ class Login extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
+  componentDidMount() {
+    // If logged in and user navigates to Register page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors,
+      });
+    }
+  }
+
   onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
@@ -24,10 +56,11 @@ class Login extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const userData = {
-      email: this.state.email,
-      password: this.state.password,
+      email: this.state.l_email,
+      password: this.state.l_password,
     };
     console.log("user:", userData);
+    this.props.loginUser(userData);
   };
 
   onSubmit_newUser = (e) => {
@@ -36,9 +69,11 @@ class Login extends Component {
       name: this.state.fname,
       email: this.state.s_email,
       password: this.state.s_password,
-      password2: this.state.password2,
+      password2: this.state.s_password2,
     };
     console.log("new user:", newUser);
+
+    this.props.registerUser(newUser, this.props.history);
   };
 
   handleClick(int) {
@@ -110,16 +145,27 @@ class Login extends Component {
                     noValidate
                     onSubmit={this.onSubmit}
                   >
-                    <label> Email:</label>
+                    <label> Email</label>
+                    <span className="red-text">
+                      {errors.email}
+                      {errors.emailnotfound}
+                    </span>
                     <input
                       onChange={this.onChange}
                       value={this.state.email}
                       error={errors.email}
                       id="l_email"
                       type="email"
+                      className={classnames("", {
+                        invalid: errors.email || errors.emailnotfound,
+                      })}
                     />
 
-                    <label> Password:</label>
+                    <label> Password</label>
+                    <span className="red-text">
+                      {errors.password}
+                      {errors.passwordincorrect}
+                    </span>
                     <input
                       type="text"
                       onChange={this.onChange}
@@ -127,10 +173,13 @@ class Login extends Component {
                       error={errors.password}
                       id="l_password"
                       type="password"
+                      className={classnames("", {
+                        invalid: errors.password || errors.passwordincorrect,
+                      })}
                     />
 
                     <button className="submitBtn" type="submit">
-                      Login
+                      Login <FontAwesomeIcon icon={faSignInAlt} />
                     </button>
                   </form>
                 </div>
@@ -167,34 +216,58 @@ class Login extends Component {
                     noValidate
                     onSubmit={this.onSubmit_newUser}
                   >
-                    <label>Full name:</label>
+                    <label>Full name</label>
+                    <span className="red-text">{errors.name}</span>
                     <input
                       onChange={this.onChange}
                       value={this.state.fname}
                       error={errors.name}
                       id="fname"
                       type="name"
+                      className={classnames("", {
+                        invalid: errors.name,
+                      })}
                     />
 
-                    <label> Email:</label>
+                    <label> Email</label>
+                    <span className="red-text">{errors.email}</span>
                     <input
                       onChange={this.onChange}
                       value={this.state.s_email}
                       error={errors.email}
                       id="s_email"
                       type="email"
+                      className={classnames("", {
+                        invalid: errors.email,
+                      })}
                     />
 
-                    <label> Password:</label>
+                    <label> Password</label>
+                    <span className="red-text">{errors.password}</span>
                     <input
                       onChange={this.onChange}
                       value={this.state.s_password}
                       error={errors.password}
                       id="s_password"
                       type="password"
+                      className={classnames("", {
+                        invalid: errors.password,
+                      })}
+                    />
+                    <label> Confirm Password</label>
+                    <span className="red-text">{errors.password2}</span>
+                    <input
+                      onChange={this.onChange}
+                      value={this.state.s_password2}
+                      error={errors.password2}
+                      id="s_password2"
+                      type="password"
+                      className={classnames("", {
+                        invalid: errors.password2,
+                      })}
                     />
                     <button className="submitBtn" type="submit">
-                      Sign Up
+                      Sign Up <FontAwesomeIcon icon={faArrowCircleRight} />
                     </button>
                   </form>
                 </div>
@@ -206,5 +279,17 @@ class Login extends Component {
     );
   }
 }
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors,
+});
 
-export default Login;
+export default connect(mapStateToProps, { registerUser, loginUser })(
+  withRouter(Login)
+);

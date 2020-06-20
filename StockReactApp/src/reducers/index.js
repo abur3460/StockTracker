@@ -1,20 +1,9 @@
-import { FETCHING_DATA_SUCCESS } from "../actions";
-
-const initialState = {
-  activity: [],
-  error: "",
-  isFetching: false,
-};
-
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case FETCHING_DATA_SUCCESS:
-      return {
-        ...state,
-        isFetching: true,
-        activity: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+import { combineReducers } from "redux";
+import authReducer from "./authReducer";
+import errorReducer from "./errorReducer";
+import activityReducer from "./activityReducer";
+export default combineReducers({
+  auth: authReducer,
+  errors: errorReducer,
+  activity: activityReducer,
+});

@@ -18,7 +18,7 @@
       height: 28rem;
       opacity: 0;
       margin: auto;
-      top: 5rem;
+      top: 4rem;
 
       .form-switch {
         letter-spacing: 1px;
@@ -28,7 +28,7 @@
         text-transform: uppercase;
         font-weight: bold;
         position: absolute;
-        bottom: 2%;
+        bottom: 0;
         left: 10%;
       }
       .form-switch .active {
@@ -77,6 +77,12 @@
         font-weight: bold;
         font-size: 2rem;
       }
+      #login-form {
+        margin-top: 3rem;
+        .submitBtn {
+          margin-top: 1rem;
+        }
+      }
       form {
         position: relative;
         top: 3rem;
@@ -85,14 +91,16 @@
         justify-content: center;
 
         label {
-          text-align: center;
-          font-size: 1rem;
+          text-align: left;
+          font-size: 0.7rem;
+          margin: 0 auto;
+          width: 75%;
         }
         input {
           font-family: "Open Sans", sans-serif;
           color: white;
           margin: 5px auto;
-          height: 2rem;
+          height: 1.7rem;
           width: 75%;
           border: none;
           background: rgb(49, 49, 49);
@@ -381,7 +389,7 @@
       position: relative;
       background: rgb(77, 77, 77);
       width: 24rem;
-      height: 28rem;
+      height: 34rem;
       margin: auto;
       padding-top: 1rem;
       top: 15vh;
@@ -467,15 +475,28 @@
         font-size: 2rem;
         width: 10rem;
       }
-
+      #login-form {
+        margin-top: 4rem;
+        label {
+          margin-top: 1rem;
+        }
+        .submitBtn {
+          margin-top: 2rem;
+        }
+      }
+      #signup-form {
+        .submitBtn {
+          margin-top: 1rem;
+        }
+      }
       form {
         display: flex;
         flex-direction: column;
         justify-content: center;
 
         label {
-          text-align: center;
           font-size: 0.9rem;
+          margin: 0 auto;
         }
         input {
           font-family: "Open Sans", sans-serif;
