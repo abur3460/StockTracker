@@ -30,54 +30,11 @@
           width: 80px;
           text-align: center;
           font-weight: bolder;
-          &:after {
-            -webkit-filter: blur(3px);
-            filter: blur(3px);
-            content: "TREND";
-            position: absolute;
-            left: 0;
-            top: -2px;
-            background: linear-gradient(to right, #8b1c7e, #d19458);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            font-family: "Exo", sans-serif;
-            font-size: 1.3rem;
-            width: 80px;
-            text-align: center;
-            font-weight: bolder;
-            opacity: 0.8;
-          }
         }
         img {
           z-index: 2;
           width: 60px;
           height: 60px;
-        }
-        .border-wrapper {
-          -webkit-filter: blur(7px);
-          filter: blur(7px);
-          span:after {
-            opacity: 0.7;
-            content: "";
-            left: -7px;
-            position: absolute;
-            width: 73px;
-            height: 65px;
-            -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-            clip-path: polygon(50% 100%, 0 0, 100% 0);
-
-            background: linear-gradient(
-              470deg,
-              #8b1c7e,
-              #8b1c7e,
-              #d19458,
-              #d19458
-            );
-            background-size: 115%;
-            background-position: -10px;
-          }
         }
       }
       .nav-line {
@@ -243,27 +200,11 @@
       display: none;
     }
     #glowbar {
-      -webkit-filter: blur(1.5px);
-      filter: blur(1.5px);
       z-index: -1;
       background: linear-gradient(to bottom, #d19458, #8b1c7e);
       position: fixed;
       top: 0;
       left: 8rem;
-      width: 0.2rem;
-      height: 100vh;
-      box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.3), 0 2px 3px rgba(0, 0, 0, 0.12),
-        0 4px 4px rgba(0, 0, 0, 0.12);
-    }
-    #glowbar:after {
-      -webkit-filter: blur(2.7px);
-      filter: blur(2.7px);
-      content: "";
-      z-index: -1;
-      background: linear-gradient(to bottom, #d19458, #8b1c7e);
-      position: fixed;
-      top: 0;
-      left: 0.2rem;
       width: 0.25rem;
       height: 100vh;
       box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.3), 0 2px 3px rgba(0, 0, 0, 0.12),
