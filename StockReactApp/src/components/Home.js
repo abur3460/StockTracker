@@ -1,27 +1,33 @@
 import React from "react";
 import { connect } from "react-redux";
 import DataTable from "./DataTable";
-import { fetchActivity } from "../actions";
+import Loader from "./Loader";
+import { fetchActivity } from "../actions/authActions";
 
 const Home = (props) => {
   console.log(props);
+  function handleClick(e) {
+    e.preventDefault();
+    const showtable = props.showTable();
+    const activity = props.fetchActivity();
+    return activity, showtable;
+  }
   return (
     <div className="main">
       <div className="img-wrapper">
         <div className="border-wrapper">
           <span></span>
         </div>
-        <img src={require("../img/logo.png")} />
+        <img alt="logo" src={require("../img/logo.png")} />
       </div>
       <h1 className="m-title">Trend</h1>
-      <p>Major index tracking with real-time prices, volumes, and more. </p>
-      <span
-        className="btn"
-        id="button"
-        onClick={(props.fetchActivity, props.showTable)}
-      >
+      <div className="text-wrapper">
+        <p>Major index tracking with real-time prices, volumes, and more. </p>
+      </div>
+      <span className="btn" id="button" onClick={handleClick}>
         Check Current Prices
       </span>
+      <Loader />
       {props.table ? <DataTable activity={props.activity} /> : null}
     </div>
   );

@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser, loginUser } from "../actions/authActions";
 import classnames from "classnames";
-
 import ReactCardFlip from "react-card-flip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -37,14 +36,13 @@ class Login extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated) {
+  componentDidUpdate(prevProps, props) {
+    if (prevProps.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
-
-    if (nextProps.errors) {
+    if (props.errors !== prevProps.errors) {
       this.setState({
-        errors: nextProps.errors,
+        errors: prevProps.errors,
       });
     }
   }

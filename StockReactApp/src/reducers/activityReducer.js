@@ -1,7 +1,7 @@
-import { FETCHING_DATA_SUCCESS } from "../actions";
+import { FETCHING_DATA_SUCCESS } from "../actions/types";
 
 const initialState = {
-  activity: [],
+  indexes: [],
   error: "",
   isFetching: false,
 };
@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isFetching: true,
-        activity: action.payload,
+        indexes: action.payload,
       };
     default:
       return state;

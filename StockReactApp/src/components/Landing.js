@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import Home from "./Home";
-import Loader from "./Loader";
 import Login from "./Login";
 import Nav from "./Nav";
 import Dashboard from "./Dashboard";
@@ -18,17 +17,18 @@ class Landing extends Component {
       table: false,
     };
   }
+
   showTable = () => {
-    this.setState({ table: true });
+    $(".loader-wrapper").css("display", "block");
+    $(".loader-wrapper").addClass("animate__animated animate__fadeIn");
     setTimeout(() => {
-      $("#loading").addClass("animate__animated animate__fadeIn");
+      $(".loader-wrapper").addClass("animate__animated animate__fadeOut");
       setTimeout(() => {
-        $("#loading").addClass("animate__animated animate__fadeOut");
-        setTimeout(() => {
-          $("#table").addClass("animate__animated animate__fadeIn");
-        }, 200);
-      }, 3000);
-    }, 300);
+        $("#table").addClass("animate__animated animate__fadeIn");
+        $("body").css("overflow-y", "auto");
+      }, 200);
+    }, 3000);
+    return this.setState({ table: true });
   };
 
   showModal = async () => {

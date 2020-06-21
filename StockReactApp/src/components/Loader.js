@@ -1,20 +1,30 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquare } from "@fortawesome/free-solid-svg-icons";
 
 const Loader = (props) => {
   return (
-    <div className="loader-wraper">
+    <div className="loader-wrapper">
       <div className="priceLoader" id="loading">
-        <div className="circle-wrapper">
-          <span className="circle circle-1"></span>
-          <span className="circle circle-2"></span>
-          <span className="circle circle-3"></span>
-          <span className="circle circle-4"></span>
-          <span className="circle circle-5"></span>
-          <span className="circle circle-6"></span>
-          <span className="circle circle-7"></span>
-          <span className="circle circle-8"></span>
+        <div className="block-wrapper">
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="block"></div>
+          <div className="loading-text">getting prices...</div>
         </div>
-        <div className="loading-text">getting prices...</div>
       </div>
     </div>
   );

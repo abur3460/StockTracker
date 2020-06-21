@@ -49,7 +49,7 @@ class Nav extends Component {
               <span></span>
             </div>
             <h1 className="m-title">TREND</h1>
-            <img src={require("../img/logo.png")} />
+            <img alt="logo" src={require("../img/logo.png")} />
           </div>
           <div className="links">
             <div className="first">
