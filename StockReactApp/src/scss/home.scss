@@ -79,7 +79,8 @@
 
   .m-container {
     margin: 2rem auto;
-    width: 50rem;
+    width: 50vw;
+    opacity: 0;
   }
 
   .loader-wrapper {
@@ -148,7 +149,7 @@
         height: 3rem;
         position: absolute;
         top: 200px;
-        left: -13px;
+        left: -10px;
         font-weight: bold;
         background-size: 200% 200%;
         -webkit-animation: text-gradient 5.5s linear 1s infinite;

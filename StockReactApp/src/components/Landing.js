@@ -24,7 +24,7 @@ class Landing extends Component {
     setTimeout(() => {
       $(".loader-wrapper").addClass("animate__animated animate__fadeOut");
       setTimeout(() => {
-        $("#table").addClass("animate__animated animate__fadeIn");
+        $(".m-container").addClass("animate__animated animate__fadeIn");
         $("body").css("overflow-y", "auto");
       }, 200);
     }, 3000);
