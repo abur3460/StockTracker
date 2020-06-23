@@ -20,6 +20,11 @@
       margin: auto;
       top: 4rem;
 
+      .red-text {
+        position: absolute;
+        color: red;
+      }
+
       .form-switch {
         letter-spacing: 1px;
         display: flex;
@@ -394,6 +399,31 @@
       padding-top: 1rem;
       top: 15vh;
       box-shadow: 2px 2px 15px 3px rgba(0, 0, 0, 0.52);
+      .red-text {
+        background: #c51244 !important;
+        padding: 10px !important;
+        border-radius: 0 !important;
+        display: inline-block !important;
+        margin-top: 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        position: absolute;
+        text-transform: uppercase;
+        text-align: left;
+        top: 21px;
+        left: 83%;
+        color: #ffffff;
+      }
+      .red-text:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #c51244;
+        position: absolute;
+        top: -10px;
+      }
       .form-switch {
         color: rgb(200, 200, 200);
         display: flex;
@@ -476,7 +506,7 @@
         width: 10rem;
       }
       #login-form {
-        margin-top: 4rem;
+        margin-top: 3rem;
         label {
           margin-top: 1rem;
         }
@@ -492,21 +522,20 @@
       form {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-
         label {
-          font-size: 0.9rem;
+          width: 60%;
           margin: 0 auto;
+          font-size: 0.9rem;
+          text-align: left;
         }
         input {
           font-family: "Open Sans", sans-serif;
-          margin: 5px auto;
           height: 2rem;
           width: 60%;
           border: none;
           background: rgb(49, 49, 49);
           align-self: center;
-          margin-bottom: 1rem;
+          margin-bottom: 2rem;
           color: rgb(136, 136, 136);
           font-weight: 600;
           padding-left: 5px;

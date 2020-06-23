@@ -1,45 +1,55 @@
 import React, { Component } from "react";
+import $ from "jquery";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
+import Home from "./Home";
+import Login from "./Login";
+import Nav from "./Nav";
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: true,
+      isLoggedIn: true,
+      currentUser: "",
+      table: false,
+    };
+  }
+
   onLogoutClick = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
 
+  showTable = () => {
+    $(".loader-wrapper").css("display", "block");
+    $(".loader-wrapper").addClass("animate__animated animate__fadeIn");
+    setTimeout(() => {
+      $(".loader-wrapper").addClass("animate__animated animate__fadeOut");
+      setTimeout(() => {
+        $(".m-container").addClass("animate__animated animate__fadeIn");
+        $("body").css("overflow-y", "auto");
+      }, 200);
+    }, 3000);
+    return this.setState({ table: true });
+  };
+
   render() {
     const { user } = this.props.auth;
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="col s12 center-align">
-            <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-              </p>
-            </h4>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem",
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Logout
-            </button>
-          </div>
-        </div>
-      </div>
+      <main>
+        <Nav
+          isLoggedIn={this.state.isLoggedIn}
+          onLogoutClick={this.onLogoutClick}
+        />
+        <Home showTable={this.showTable} table={this.state.table} />
+      </main>
     );
   }
 }
+
 Dashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,

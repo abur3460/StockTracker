@@ -6,6 +6,7 @@ import {
   faHome,
   faSignInAlt,
   faChartLine,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 class Nav extends Component {
@@ -25,6 +26,18 @@ class Nav extends Component {
     } else {
     }
   };
+
+  handleResize = (e) => {
+    $(".menu").css("display", "block");
+  };
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
 
   render() {
     return (
@@ -66,10 +79,17 @@ class Nav extends Component {
                 </div>
               </div>
             </div>
-            <div className="second" onClick={this.props.showModal}>
-              <FontAwesomeIcon icon={faSignInAlt} />
-              <p>Sign In</p>
-            </div>
+            {this.props.isLoggedIn ? (
+              <div className="second" onClick={this.props.onLogoutClick}>
+                <FontAwesomeIcon icon={faUser} />
+                <p>My Account</p>
+              </div>
+            ) : (
+              <div className="second" onClick={this.props.showModal}>
+                <FontAwesomeIcon icon={faSignInAlt} />
+                <p>Sign In</p>
+              </div>
+            )}
           </div>
           <div className="mobile-links">
             <div className="first">

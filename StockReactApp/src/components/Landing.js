@@ -3,7 +3,6 @@ import $ from "jquery";
 import Home from "./Home";
 import Login from "./Login";
 import Nav from "./Nav";
-import Dashboard from "./Dashboard";
 
 class Landing extends Component {
   constructor(props) {
@@ -17,6 +16,10 @@ class Landing extends Component {
       table: false,
     };
   }
+
+  loggedIn = () => {
+    return this.setState({ isLoggedIn: true });
+  };
 
   showTable = () => {
     $(".loader-wrapper").css("display", "block");
@@ -92,13 +95,10 @@ class Landing extends Component {
           showLogin={this.showLogin}
           showSignUp={this.showSignUp}
           hideModal={this.hideModal}
+          loggedIn={this.loggedIn}
         />
         <Nav showModal={this.showModal} currentUser={this.currentUser} />
-        {isLoggedIn ? (
-          <Dashboard />
-        ) : (
-          <Home showTable={this.showTable} table={this.state.table} />
-        )}
+        <Home showTable={this.showTable} table={this.state.table} />
       </main>
     );
   }

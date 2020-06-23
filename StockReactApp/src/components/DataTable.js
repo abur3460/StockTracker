@@ -44,6 +44,8 @@ const DataTable = (props) => {
   ];
   const options = {
     filterType: "checkbox",
+    download: false,
+    print: false,
   };
 
   return (
@@ -54,28 +56,6 @@ const DataTable = (props) => {
         columns={columns}
         options={options}
       />
-      {/* <table className="pagination" id="table">
-        <thead>
-          <tr className="hdr">
-            <td>Name</td>
-            <td colSpan="2">Price</td>
-          </tr>
-        </thead>
-        {props.activity.activity.activity.map((stock, index) => (
-          <tbody key={index}>
-            <tr>
-              <td>
-                <div className="text">
-                  {stock.name} | {stock.symbol}
-                </div>
-              </td>
-              <td>
-                <div className="price">${formatter.format(stock.price)}</div>
-              </td>
-            </tr>
-          </tbody>
-        ))}
-      </table> */}
     </div>
   );
 };

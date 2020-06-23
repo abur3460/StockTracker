@@ -9,6 +9,7 @@
     .mobile-top-nav {
       display: none;
     }
+
     .menu {
       width: 8rem;
       height: 100vh;
@@ -155,14 +156,13 @@
           display: flex;
           flex-direction: row;
           width: 100%;
-
           cursor: pointer;
           height: 24px;
           margin-bottom: 3rem;
+          justify-content: center;
           svg {
             overflow: hidden;
             text-decoration: none;
-            margin: 0 auto;
             color: rgb(122, 122, 122);
             font-size: 1.5rem;
             text-decoration: none;
@@ -173,9 +173,9 @@
           p {
             margin-top: 7px;
             opacity: 0;
-            max-width: 0;
+            max-width: 5px;
             text-decoration: none;
-            transition: margin 0.3s, max-width 0.4s, opacity 0.2s, color 0.2s;
+            transition: margin 0.3s, max-width 0.3s, opacity 0.2s, color 0.2s;
             color: rgb(122, 122, 122);
             float: right;
             display: block;
@@ -188,8 +188,8 @@
 
           &:hover p {
             opacity: 1;
-            max-width: 150px;
-            margin: 7px 1rem 0 -20px;
+            max-width: 300px;
+            margin: 7px 0 0 10px;
             transition: margin 0, max-width 0.6s ease-in, opacity 0.1s,
               color 0.2s;
           }

@@ -9,15 +9,15 @@ import {
   FETCHING_DATA_SUCCESS,
 } from "./types";
 
-var key = process.env.REACT_APP_KEY;
+var key = process.env.REACT_APP_KEY2;
 const URL =
   "https://financialmodelingprep.com/api/v3/quotes/nyse?apikey=" + key;
 
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post(":3005/api/users/register", userData)
-    .then((res) => history.push("/login")) // re-direct to login on successful register
+    .post("/api/users/register", userData)
+    .then() // re-direct to login on successful register
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,
@@ -30,15 +30,10 @@ export const loginUser = (userData) => (dispatch) => {
   axios
     .post("/api/users/login", userData)
     .then((res) => {
-      // Save to localStorage
-      // Set token to localStorage
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
-      // Set token to Auth header
       setAuthToken(token);
-      // Decode token to get user data
       const decoded = jwt_decode(token);
-      // Set current user
       dispatch(setCurrentUser(decoded));
     })
     .catch((err) =>
@@ -48,6 +43,7 @@ export const loginUser = (userData) => (dispatch) => {
       })
     );
 };
+
 // Set logged in user
 export const setCurrentUser = (decoded) => {
   return {
@@ -55,6 +51,7 @@ export const setCurrentUser = (decoded) => {
     payload: decoded,
   };
 };
+
 // User loading
 export const setUserLoading = () => {
   return {
@@ -64,11 +61,8 @@ export const setUserLoading = () => {
 
 // Log user out
 export const logoutUser = () => (dispatch) => {
-  // Remove token from local storage
   localStorage.removeItem("jwtToken");
-  // Remove auth header for future requests
   setAuthToken(false);
-  // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 };
 
