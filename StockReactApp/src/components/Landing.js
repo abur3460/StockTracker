@@ -3,6 +3,7 @@ import $ from "jquery";
 import Home from "./Home";
 import Login from "./Login";
 import Nav from "./Nav";
+import Dashboard from "./Dashboard";
 
 class Landing extends Component {
   constructor(props) {
@@ -98,7 +99,11 @@ class Landing extends Component {
           loggedIn={this.loggedIn}
         />
         <Nav showModal={this.showModal} currentUser={this.currentUser} />
-        <Home showTable={this.showTable} table={this.state.table} />
+        {isLoggedIn ? (
+          <Dashboard />
+        ) : (
+          <Home showTable={this.showTable} table={this.state.table} />
+        )}
       </main>
     );
   }

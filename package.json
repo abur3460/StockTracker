@@ -8,7 +8,8 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix StockReactApp",
-    "dev": "concurrently \"node server.js\" \"npm run client\""
+    "dev": "concurrently \"node server.js\" \"npm run client\"",
+    "build": "concurrently \"node server.js\" \"npm run build\""
   },
   "repository": {
     "type": "git",
