@@ -1,2 +1,3 @@
-# CryptoTracker
-Crypto Currency Tracker built with react, redux and nodejs
+# TREND - Stock Market Tracker
+
+Stock market tracker built with react, redux and nodejs
