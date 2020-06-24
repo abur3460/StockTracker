@@ -6,10 +6,9 @@
   "scripts": {
     "client-install": "npm install --prefix StockReactApp",
     "start": "node server.js",
+    "heroku-postbuild": "cd StockReactApp && npm install && npm run build",
     "server": "nodemon server.js",
-    "client": "npm start --prefix StockReactApp",
-    "dev": "concurrently \"node server.js\" \"npm run client\"",
-    "build": "concurrently \"node server.js\" \"npm run build --prefix StockReactApp\""
+    "dev": "concurrently \"node server.js\" \"npm run client\""
   },
   "repository": {
     "type": "git",
