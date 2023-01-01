@@ -33,7 +33,7 @@
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.18",
-    "mui-datatables": "^3.0.0",
+    "mui-datatables": "^3.8.5",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "path": "^0.12.7",
